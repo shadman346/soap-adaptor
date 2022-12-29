@@ -1,13 +1,5 @@
 server:
   port: 3030
-  tomcat:
-    threads:
-      max: 100
   servlet:
     context-path: /soap-service-adaptor/
-  compression:
-    enabled: true
-    mime-types: text/html,text/plain,application/json
-    min-response-size: 10240
-  http2:
-    enabled: true
+

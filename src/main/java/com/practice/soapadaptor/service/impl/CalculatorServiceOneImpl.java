@@ -12,7 +12,7 @@ import java.util.Map;
 
 @Service
 public class CalculatorServiceOneImpl implements CalculatorSoap {
-    public final static Map<String,String> soapActionMap = new HashMap<>();
+    protected static final Map<String,String> soapActionMap = new HashMap<>();
     private static final String SOAP_URL = "http://www.dneonline.com/calculator.asmx";
     @Override
     public AddResponse add(Add add) {
