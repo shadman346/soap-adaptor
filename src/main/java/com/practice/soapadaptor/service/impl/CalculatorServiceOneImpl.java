@@ -1,5 +1,6 @@
 package com.practice.soapadaptor.service.impl;
 
+import com.practice.soapadaptor.context.SharedApplicationContext;
 import com.practice.soapadaptor.generated.calculator.*;
 import com.practice.soapadaptor.constants.Constant;
 import com.practice.soapadaptor.generated.calculator.CalculatorSoap;
@@ -18,6 +19,7 @@ public class CalculatorServiceOneImpl implements CalculatorSoap {
         Map<String,String> headersMap = new HashMap<>();
         headersMap.put(Constant.SOAPACTION,"http://tempuri.org/Add");
         headersMap.putAll(Constant.headersMap0);
+        headersMap.putAll(SharedApplicationContext.getHeaders());
         SOAPClientSAAJ<Add,AddResponse> soapClientSAAJ = SOAPClientSAAJ.<Add, AddResponse>builder()
                 .soapUrl(SOAP_URL).headersMap(headersMap).nameSpaceUriMap(new HashMap<>())
                 .request(add).responseType(AddResponse.class).build();

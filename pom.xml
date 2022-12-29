@@ -80,26 +80,6 @@
                     </excludes>
                 </configuration>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.jvnet.jaxb2.maven2</groupId>-->
-<!--                <artifactId>maven-jaxb2-plugin</artifactId>-->
-<!--                <version>0.13.2</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <goals>-->
-<!--                            <goal>generate</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--                <configuration>-->
-<!--                    <generatePackage>com.practice.soapadaptor.dtoss</generatePackage>-->
-<!--                    <generateDirectory>${project.basedir}/src/main/java</generateDirectory>-->
-<!--                    <schemaDirectory>${project.basedir}/src/main/resources/runwsdl</schemaDirectory>-->
-<!--                    <schemaIncludes>-->
-<!--                        <include>*.wsdl</include>-->
-<!--                    </schemaIncludes>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jaxws-maven-plugin</artifactId>
@@ -117,7 +97,7 @@
 <!--                        <wsdlUrl>https://www.dataaccess.com/webservicesserver/numberconversion.wso?WSDL</wsdlUrl>-->
 <!--                    </wsdlUrls>-->
 <!--                    <wsdlFiles>-->
-<!--                        <wsdlFile>${project.basedir}/src/main/resources/runwsdl</wsdlFile>-->
+<!--                        <wsdlFile>conversionService.wsdl</wsdlFile>-->
 <!--                    </wsdlFiles>-->
                     <keep>true</keep>
                     <packageName>com.practice.soapadaptor.generated.calculator</packageName>
