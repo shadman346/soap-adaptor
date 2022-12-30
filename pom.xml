@@ -84,23 +84,23 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jaxws-maven-plugin</artifactId>
                 <version>2.6</version>
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <goals>-->
-<!--                            <goal>wsimport</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
                     <wsdlDirectory>${project.basedir}/src/main/resources/runwsdl</wsdlDirectory>
 <!--                    <wsdlUrls>-->
 <!--                        <wsdlUrl>https://www.dataaccess.com/webservicesserver/numberconversion.wso?WSDL</wsdlUrl>-->
 <!--                    </wsdlUrls>-->
-<!--                    <wsdlFiles>-->
-<!--                        <wsdlFile>conversionService.wsdl</wsdlFile>-->
-<!--                    </wsdlFiles>-->
+                    <wsdlFiles>
+                        <wsdlFile>ClaimServiceWeaklyTyped.wsdl</wsdlFile>
+                    </wsdlFiles>
                     <keep>true</keep>
-                    <packageName>com.practice.soapadaptor.generated.calculator</packageName>
+                    <packageName>com.practice.soapadaptor.generated.claimserviceweaklytyped</packageName>
                     <sourceDestDir>src/main/java</sourceDestDir>
                 </configuration>
             </plugin>
