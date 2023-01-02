@@ -1,4 +1,5 @@
 package com.practice.soapadaptor.client;
+import com.sun.xml.bind.marshaller.CharacterEscapeHandler;
 import lombok.Builder;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -8,6 +9,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.soap.*;
 import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
 import java.util.Map;
 
 /*
@@ -102,6 +104,7 @@ public class SOAPClientSAAJ<T,X> {
         // output pretty printed
         jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         jaxbMarshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+        jaxbMarshaller.setProperty(CharacterEscapeHandler.class.getName(),new CustomCharacterEscapeHandler());
         jaxbMarshaller.marshal(request, soapBody);
 
     }
