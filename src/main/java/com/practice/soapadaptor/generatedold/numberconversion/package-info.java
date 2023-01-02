@@ -1,2 +1,2 @@
 @javax.xml.bind.annotation.XmlSchema(namespace = "http://www.dataaccess.com/webservicesserver/", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package com.practice.soapadaptor.generated.numberconversion;
+package com.practice.soapadaptor.generatedold.numberconversion;

@@ -1,7 +1,7 @@
-package com.practice.soapadaptor.controller;
+package com.practice.soapadaptor.controller.old;
 
-import com.practice.soapadaptor.generated.calculator.*;
-import com.practice.soapadaptor.service.impl.CalculatorServiceTwoImpl;
+import com.practice.soapadaptor.generatedold.calculator.*;
+import com.practice.soapadaptor.service.implold.CalculatorServiceTwoImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

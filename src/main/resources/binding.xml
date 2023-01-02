@@ -1,6 +1,8 @@
-<bindings
+<jaxws:bindings
+        xmlns="http://java.sun.com/xml/ns/jaxws"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-        xmlns="http://java.sun.com/xml/ns/jaxws">
-    <!-- Disable default wrapper style -->
-    <enableWrapperStyle>false</enableWrapperStyle>
-</bindings>
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+    <jaxws:enableWrapperStyle>false</jaxws:enableWrapperStyle>
+
+</jaxws:bindings>

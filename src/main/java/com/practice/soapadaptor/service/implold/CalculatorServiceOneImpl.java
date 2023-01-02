@@ -1,9 +1,9 @@
-package com.practice.soapadaptor.service.impl;
+package com.practice.soapadaptor.service.implold;
 
 import com.practice.soapadaptor.context.SharedApplicationContext;
-import com.practice.soapadaptor.generated.calculator.*;
+import com.practice.soapadaptor.generatedold.calculator.*;
 import com.practice.soapadaptor.constants.Constant;
-import com.practice.soapadaptor.generated.calculator.CalculatorSoap;
+import com.practice.soapadaptor.generatedold.calculator.CalculatorSoap;
 import com.practice.soapadaptor.client.SOAPClientSAAJ;
 import org.springframework.stereotype.Service;
 

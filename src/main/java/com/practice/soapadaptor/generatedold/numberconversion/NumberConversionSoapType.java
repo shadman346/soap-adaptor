@@ -1,5 +1,5 @@
 
-package com.practice.soapadaptor.generated.numberconversion;
+package com.practice.soapadaptor.generatedold.numberconversion;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

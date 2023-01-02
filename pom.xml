@@ -82,6 +82,23 @@
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.9</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals><goal>add-source</goal></goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated/src/main/java</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jaxws-maven-plugin</artifactId>
                 <version>2.6</version>
                 <executions>
@@ -93,15 +110,16 @@
                 </executions>
                 <configuration>
                     <wsdlDirectory>${project.basedir}/src/main/resources/runwsdl</wsdlDirectory>
-<!--                    <wsdlUrls>-->
-<!--                        <wsdlUrl>https://www.dataaccess.com/webservicesserver/numberconversion.wso?WSDL</wsdlUrl>-->
-<!--                    </wsdlUrls>-->
                     <wsdlFiles>
                         <wsdlFile>ClaimServiceWeaklyTyped.wsdl</wsdlFile>
                     </wsdlFiles>
+                    <extension>true</extension>
                     <keep>true</keep>
-                    <packageName>com.practice.soapadaptor.generated.claimserviceweaklytyped</packageName>
-                    <sourceDestDir>src/main/java</sourceDestDir>
+                    <bindingFiles>
+                        <bindingFile>${project.basedir}/src/main/resources/binding.xml</bindingFile>
+                    </bindingFiles>
+                    <packageName>com.practice.soapadaptor.wsgenerated.ClaimServiceWeaklyTyped</packageName>
+                    <sourceDestDir>${project.build.directory}/generated/src/main/java</sourceDestDir>
                 </configuration>
             </plugin>
         </plugins>

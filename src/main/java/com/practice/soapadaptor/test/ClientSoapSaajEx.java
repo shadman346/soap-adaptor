@@ -1,6 +1,6 @@
 package com.practice.soapadaptor.test;
 
-import com.practice.soapadaptor.generated.numberconversion.*;
+import com.practice.soapadaptor.generatedold.numberconversion.*;
 import lombok.SneakyThrows;
 
 import javax.xml.bind.JAXBContext;
