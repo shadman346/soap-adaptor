@@ -1,7 +1,7 @@
 package com.practice.soapadaptor.test;
 
-import com.practice.soapadaptor.generated.numberconversion.NumberConversion;
-import com.practice.soapadaptor.generated.numberconversion.NumberConversionSoapType;
+import com.practice.soapadaptor.generatedold.numberconversion.NumberConversion;
+import com.practice.soapadaptor.generatedold.numberconversion.NumberConversionSoapType;
 
 import java.math.BigDecimal;
 

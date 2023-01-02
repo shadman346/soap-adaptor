@@ -1,5 +1,5 @@
 
-package com.practice.soapadaptor.generated.calculator;
+package com.practice.soapadaptor.generatedold.calculator;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;

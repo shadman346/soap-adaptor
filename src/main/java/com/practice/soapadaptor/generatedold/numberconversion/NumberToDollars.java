@@ -1,6 +1,7 @@
 
-package com.practice.soapadaptor.generated.calculator;
+package com.practice.soapadaptor.generatedold.numberconversion;
 
+import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -18,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="MultiplyResult" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="dNum" type="{http://www.w3.org/2001/XMLSchema}decimal"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -29,28 +30,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "multiplyResult"
+    "dNum"
 })
-@XmlRootElement(name = "MultiplyResponse")
-public class MultiplyResponse {
+@XmlRootElement(name = "NumberToDollars")
+public class NumberToDollars {
 
-    @XmlElement(name = "MultiplyResult")
-    protected int multiplyResult;
+    @XmlElement(required = true)
+    protected BigDecimal dNum;
 
     /**
-     * Gets the value of the multiplyResult property.
+     * Gets the value of the dNum property.
      * 
+     * @return
+     *     possible object is
+     *     {@link BigDecimal }
+     *     
      */
-    public int getMultiplyResult() {
-        return multiplyResult;
+    public BigDecimal getDNum() {
+        return dNum;
     }
 
     /**
-     * Sets the value of the multiplyResult property.
+     * Sets the value of the dNum property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link BigDecimal }
+     *     
      */
-    public void setMultiplyResult(int value) {
-        this.multiplyResult = value;
+    public void setDNum(BigDecimal value) {
+        this.dNum = value;
     }
 
 }

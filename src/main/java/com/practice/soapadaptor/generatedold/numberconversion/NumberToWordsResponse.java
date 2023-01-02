@@ -1,5 +1,5 @@
 
-package com.practice.soapadaptor.generated.numberconversion;
+package com.practice.soapadaptor.generatedold.numberconversion;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

@@ -1,5 +1,5 @@
 
-package com.practice.soapadaptor.generated.calculator;
+package com.practice.soapadaptor.generatedold.calculator;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -32,8 +32,8 @@ import javax.xml.bind.annotation.XmlType;
     "intA",
     "intB"
 })
-@XmlRootElement(name = "Multiply")
-public class Multiply {
+@XmlRootElement(name = "Divide")
+public class Divide {
 
     protected int intA;
     protected int intB;

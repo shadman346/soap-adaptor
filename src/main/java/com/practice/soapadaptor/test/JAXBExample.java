@@ -9,7 +9,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.namespace.QName;
 import javax.xml.soap.*;
 
-import com.practice.soapadaptor.generated.numberconversion.*;
+import com.practice.soapadaptor.generatedold.numberconversion.*;
 import com.sun.xml.txw2.output.CharacterEscapeHandler;
 
 public class JAXBExample {

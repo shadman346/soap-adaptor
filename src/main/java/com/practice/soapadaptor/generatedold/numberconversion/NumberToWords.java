@@ -1,11 +1,12 @@
 
-package com.practice.soapadaptor.generated.numberconversion;
+package com.practice.soapadaptor.generatedold.numberconversion;
 
-import java.math.BigDecimal;
+import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -19,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="dNum" type="{http://www.w3.org/2001/XMLSchema}decimal"/&gt;
+ *         &lt;element name="ubiNum" type="{http://www.w3.org/2001/XMLSchema}unsignedLong"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -30,36 +31,37 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "dNum"
+    "ubiNum"
 })
-@XmlRootElement(name = "NumberToDollars")
-public class NumberToDollars {
+@XmlRootElement(name = "NumberToWords")
+public class NumberToWords {
 
     @XmlElement(required = true)
-    protected BigDecimal dNum;
+    @XmlSchemaType(name = "unsignedLong")
+    protected BigInteger ubiNum;
 
     /**
-     * Gets the value of the dNum property.
+     * Gets the value of the ubiNum property.
      * 
      * @return
      *     possible object is
-     *     {@link BigDecimal }
+     *     {@link BigInteger }
      *     
      */
-    public BigDecimal getDNum() {
-        return dNum;
+    public BigInteger getUbiNum() {
+        return ubiNum;
     }
 
     /**
-     * Sets the value of the dNum property.
+     * Sets the value of the ubiNum property.
      * 
      * @param value
      *     allowed object is
-     *     {@link BigDecimal }
+     *     {@link BigInteger }
      *     
      */
-    public void setDNum(BigDecimal value) {
-        this.dNum = value;
+    public void setUbiNum(BigInteger value) {
+        this.ubiNum = value;
     }
 
 }

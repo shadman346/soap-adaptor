@@ -1,5 +1,5 @@
 
-package com.practice.soapadaptor.generated.calculator;
+package com.practice.soapadaptor.generatedold.calculator;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="AddResult" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="MultiplyResult" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -29,28 +29,28 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "addResult"
+    "multiplyResult"
 })
-@XmlRootElement(name = "AddResponse")
-public class AddResponse {
+@XmlRootElement(name = "MultiplyResponse")
+public class MultiplyResponse {
 
-    @XmlElement(name = "AddResult")
-    protected int addResult;
+    @XmlElement(name = "MultiplyResult")
+    protected int multiplyResult;
 
     /**
-     * Gets the value of the addResult property.
+     * Gets the value of the multiplyResult property.
      * 
      */
-    public int getAddResult() {
-        return addResult;
+    public int getMultiplyResult() {
+        return multiplyResult;
     }
 
     /**
-     * Sets the value of the addResult property.
+     * Sets the value of the multiplyResult property.
      * 
      */
-    public void setAddResult(int value) {
-        this.addResult = value;
+    public void setMultiplyResult(int value) {
+        this.multiplyResult = value;
     }
 
 }

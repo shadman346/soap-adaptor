@@ -1,12 +1,10 @@
 
-package com.practice.soapadaptor.generated.numberconversion;
+package com.practice.soapadaptor.generatedold.numberconversion;
 
-import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -20,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="ubiNum" type="{http://www.w3.org/2001/XMLSchema}unsignedLong"/&gt;
+ *         &lt;element name="NumberToDollarsResult" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -31,37 +29,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "ubiNum"
+    "numberToDollarsResult"
 })
-@XmlRootElement(name = "NumberToWords")
-public class NumberToWords {
+@XmlRootElement(name = "NumberToDollarsResponse")
+public class NumberToDollarsResponse {
 
-    @XmlElement(required = true)
-    @XmlSchemaType(name = "unsignedLong")
-    protected BigInteger ubiNum;
+    @XmlElement(name = "NumberToDollarsResult", required = true)
+    protected String numberToDollarsResult;
 
     /**
-     * Gets the value of the ubiNum property.
+     * Gets the value of the numberToDollarsResult property.
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link String }
      *     
      */
-    public BigInteger getUbiNum() {
-        return ubiNum;
+    public String getNumberToDollarsResult() {
+        return numberToDollarsResult;
     }
 
     /**
-     * Sets the value of the ubiNum property.
+     * Sets the value of the numberToDollarsResult property.
      * 
      * @param value
      *     allowed object is
-     *     {@link BigInteger }
+     *     {@link String }
      *     
      */
-    public void setUbiNum(BigInteger value) {
-        this.ubiNum = value;
+    public void setNumberToDollarsResult(String value) {
+        this.numberToDollarsResult = value;
     }
 
 }

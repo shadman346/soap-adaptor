@@ -1,10 +1,5 @@
 
-package com.practice.soapadaptor.generated.numberconversion;
-
-import com.practice.soapadaptor.generated.numberconversion.NumberToDollars;
-import com.practice.soapadaptor.generated.numberconversion.NumberToDollarsResponse;
-import com.practice.soapadaptor.generated.numberconversion.NumberToWords;
-import com.practice.soapadaptor.generated.numberconversion.NumberToWordsResponse;
+package com.practice.soapadaptor.generatedold.numberconversion;
 
 import javax.xml.bind.annotation.XmlRegistry;
 

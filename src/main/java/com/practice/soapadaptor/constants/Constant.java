@@ -8,6 +8,7 @@ public class Constant {
 
 
     public static final Map<String,String > headersMap0 = Map.of("content-type","text/xml");
+    public static final Map<String,String > headersMap1 = Map.of("content-type","application/soap+xml");
 
 
     public static final String SOAPACTION = "SOAPAction";
