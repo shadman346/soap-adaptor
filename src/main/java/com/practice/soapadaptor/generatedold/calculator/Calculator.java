@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "Calculator", targetNamespace = "http://tempuri.org/", wsdlLocation = "file:/C:/healthEdge/soapadaptor/src/main/resources/runwsdl/calculatorService.wsdl")
+@WebServiceClient(name = "Calculator", targetNamespace = "http://tempuri.org/", wsdlLocation = "file:/C:/healthEdge/soap-adaptor/src/main/resources/runwsdl/calculatorService.wsdl")
 public class Calculator
     extends Service
 {
@@ -30,7 +30,7 @@ public class Calculator
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/C:/healthEdge/soapadaptor/src/main/resources/runwsdl/calculatorService.wsdl");
+            url = new URL("file:/C:/healthEdge/soap-adaptor/src/main/resources/runwsdl/calculatorService.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

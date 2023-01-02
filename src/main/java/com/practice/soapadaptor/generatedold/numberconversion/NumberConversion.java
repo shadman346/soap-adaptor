@@ -19,7 +19,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "NumberConversion", targetNamespace = "http://www.dataaccess.com/webservicesserver/", wsdlLocation = "file:/C:/healthEdge/soapadaptor/src/main/resources/runwsdl/conversionService.wsdl")
+@WebServiceClient(name = "NumberConversion", targetNamespace = "http://www.dataaccess.com/webservicesserver/", wsdlLocation = "file:/C:/healthEdge/soap-adaptor/src/main/resources/runwsdl/conversionService.wsdl")
 public class NumberConversion
     extends Service
 {
@@ -32,7 +32,7 @@ public class NumberConversion
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/C:/healthEdge/soapadaptor/src/main/resources/runwsdl/conversionService.wsdl");
+            url = new URL("file:/C:/healthEdge/soap-adaptor/src/main/resources/runwsdl/conversionService.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
