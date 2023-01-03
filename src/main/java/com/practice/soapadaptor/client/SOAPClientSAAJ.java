@@ -29,7 +29,7 @@ import java.util.Objects;
 
  */
 @Slf4j
-public class SOAPClientSAAJ<T, X> {
+public class SOAPClientSAAJ<T,X> {
     //Required Fields
     private final String soapUrl;
     private final T request;
@@ -71,7 +71,7 @@ public class SOAPClientSAAJ<T, X> {
             //Unmarshall process (Layer 4th)
             deSerializeResponseFromSOAPMessageResponse();
         } catch (Exception e) {
-            log.error("\nError occurred while sending SOAP Request to Server!\nMake sure you have the correct endpoint URL and SOAPAction!\n");
+            log.error("\nError occurred while creating and sending SOAP Request to Server!\nMake sure you have the correct endpoint URL and all Required fields are present!\n");
             throw new RuntimeException(e);
         } finally {
             close();
