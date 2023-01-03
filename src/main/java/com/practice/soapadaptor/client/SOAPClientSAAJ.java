@@ -21,10 +21,10 @@ import java.util.Objects;
  */
 /* Process that take place in service layer(core logic):-
    - Steps to be executed for one soap web service request:-
-        Layer 1st: Prepare data transfer object that is going to hold all the necessary resources needed to share between different layers. (External+Internal Fields)
-        Layer 2nd: serialize/marshal jaxb-class request object to soap request message.
-        Layer 3rd: A Client that consumes soap request message to fetch us the result from the soap web service end-point and cast response in soap response message.
-        Layer 4th: deserialize/unmarshal soap response message to jaxb-class response object.
+        Initialize: Prepare data transfer object that is going to hold all the necessary resources needed to share between different layers. (External+Internal Fields)
+        Step 1: serialize/marshal jaxb-class request object to soap request message.
+        Step 2: A Client that consumes soap request message to fetch us the result from the soap web service end-point and cast response in soap response message.
+        Step 3: deserialize/unmarshal soap response message to jaxb-class response object.
    - Exceptional Handling must be taken care off in each Layer.
 
  */
@@ -65,11 +65,11 @@ public class SOAPClientSAAJ<T,X> {
             return null;
         }
         try {
-            //Marshal process (Layer 2nd)
+            //Marshal process (Step 1)
             serializeRequestToSOAPMessageRequest();
-            //Making Request to SOAP Server process (Layer 3rd)
+            //Making Request to SOAP Server process (Step 2)
             publishSOAPRequestToSoapServer();
-            //Unmarshall process (Layer 4th)
+            //Unmarshall process (Step 3)
             deSerializeResponseFromSOAPMessageResponse();
         } catch (Exception e) {
             log.error("\nError occurred while creating and sending SOAP Request to Server!\nMake sure you have the correct endpoint URL and all Required fields are present!\n");
@@ -148,7 +148,7 @@ public class SOAPClientSAAJ<T,X> {
 
     }
 
-    public <X extends Object> X objectMapper(Object from, Class<X> to) {
+    public X objectMapper(Object from, Class<X> to) {
         ObjectMapper mapper = new ObjectMapper();
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         return mapper.convertValue(from, to);
