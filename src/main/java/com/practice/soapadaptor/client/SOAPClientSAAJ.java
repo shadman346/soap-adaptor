@@ -20,7 +20,6 @@ import java.util.Objects;
    -We are using java plugin/tool to generate POJOs or JAXB classes for the Rest request and response Objects that will further interact with our business logic.
  */
 /* Process that take place in service layer(core logic):-
-   (Everytime)
    - Steps to be executed for one soap web service request:-
         Layer 1st: Prepare data transfer object that is going to hold all the necessary resources needed to share between different layers.
         Layer 2nd: serialize/marshal jaxb-class request object to soap request message.
@@ -28,19 +27,17 @@ import java.util.Objects;
         Layer 4th: deserialize/unmarshal soap response message to jaxb-class response object.
    - Exceptional Handling must be taken care off in each Layer.
 
-   (Use case Dependent)
-   - It might be possible that we need to hit multiple soap web service end-points from our service,
-     therefore we follow the above process again, preparing new dto for each request.
-   - Lastly Modify Rest Response Object if needed.
  */
 @Slf4j
 public class SOAPClientSAAJ<T, X> {
+    //Required Fields
     private final String soapUrl;
     private final T request;
     private final Class<X> responseType;
     private final Map<String, String> nameSpaceUriMap;
     private final Map<String, String> headersMap;
 
+    //Create Builder for Required/External fields only
     @Builder
     public SOAPClientSAAJ(String soapUrl, T request, Class<X> responseType, Map<String, String> nameSpaceUriMap, Map<String, String> headersMap) {
         this.soapUrl = soapUrl;
@@ -49,7 +46,7 @@ public class SOAPClientSAAJ<T, X> {
         this.nameSpaceUriMap = nameSpaceUriMap;
         this.headersMap = headersMap;
     }
-
+    //Internal fields
     private SOAPMessage soapMessageRequest = null;
     private SOAPMessage soapMessageResponse = null;
     private X response = null;
@@ -57,21 +54,21 @@ public class SOAPClientSAAJ<T, X> {
 
     public void close() {
         if (closed) {
-            log.error("SOAPClientSAAJ Connection already closed !!");
+            log.error("SOAPClientSAAJ Connection is already closed !!");
         }
         closed = true;
     }
 
     public X callSoapWebService() {
-        if (Boolean.TRUE.equals(closed)) {
+        if (closed) {
             log.error("SOAPClientSAAJ Connection is closed !!!");
         }
         try {
-            //Marshal process
+            //Marshal process (Layer 2nd)
             serializeRequestToSOAPMessageRequest();
-            //Making Request to SOAP Server
+            //Making Request to SOAP Server process (Layer 3rd)
             publishSOAPRequestToSoapServer();
-            //Unmarshall process
+            //Unmarshall process (Layer 4th)
             deSerializeResponseFromSOAPMessageResponse();
         } catch (Exception e) {
             log.error("\nError occurred while sending SOAP Request to Server!\nMake sure you have the correct endpoint URL and SOAPAction!\n");
