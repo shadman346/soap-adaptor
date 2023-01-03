@@ -24,11 +24,11 @@ public class ClaimServiceWeaklyTypedController {
             @RequestBody FindClaims request) throws Exception {
         Map<String,String> headersMap = new HashMap<>();
         headersMap.putAll(SharedApplicationContext.getHeaders());
-        headersMap.putAll(Constant.headersMap1);
+        headersMap.putAll(Constant.headersMap0);
         SOAPClientSAAJ<FindClaims, FindClaimsResponse> soapClientSAAJ = SOAPClientSAAJ.<FindClaims, FindClaimsResponse>builder()
-                .soapUrl(SOAP_URL).headersMap(headersMap).nameSpaceUriMap(new HashMap<>())
+                .soapUrl(SOAP_URL).headersMap(headersMap).nameSpaceUriMap(Constant.nameSpaceUriMap0)
                 .request(request).responseType(FindClaimsResponse.class).build();
-        soapClientSAAJ.callSoapWebService();
-        return ResponseEntity.status(HttpStatus.OK).body(new FindClaimsResponse());
+        FindClaimsResponse response = soapClientSAAJ.callSoapWebService();
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 }

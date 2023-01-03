@@ -1,4 +1,6 @@
 package com.practice.soapadaptor.client;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.xml.bind.marshaller.CharacterEscapeHandler;
 import lombok.Builder;
 import lombok.SneakyThrows;
@@ -44,11 +46,8 @@ public class SOAPClientSAAJ<T,X> {
         try {
             // Create SOAP Connection
             CustomSoapConnectionClient customSoapConnectionClient = new CustomSoapConnectionClient();
-            SOAPMessage soapResponseC = customSoapConnectionClient.call(createSOAPRequest(),soapUrl);
-//            SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
-//            SOAPConnection soapConnection = soapConnectionFactory.createConnection();
             // Send SOAP Message to SOAP Server
-//            SOAPMessage soapResponse = soapConnection.call(createSOAPRequest(), soapUrl);
+            SOAPMessage soapResponseC = customSoapConnectionClient.call(createSOAPRequest(),soapUrl);
             // Print the SOAP Response
             ByteArrayOutputStream br = new ByteArrayOutputStream();
             soapResponseC.writeTo(br);
@@ -57,8 +56,7 @@ public class SOAPClientSAAJ<T,X> {
             JAXBContext jaxbContext = JAXBContext.newInstance(responseType);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
             Object response = jaxbUnmarshaller.unmarshal(soapResponseC.getSOAPBody().extractContentAsDocument());
-            responseObject = responseType.cast(response);
-//            soapConnection.close();
+            responseObject = objectMapper(response,responseType);
             customSoapConnectionClient.close();
         } catch (Exception e) {
             log.error("\nError occurred while sending SOAP Request to Server!\nMake sure you have the correct endpoint URL and SOAPAction!\n");
@@ -107,15 +105,16 @@ public class SOAPClientSAAJ<T,X> {
         jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         jaxbMarshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
 //        jaxbMarshaller.setProperty(CharacterEscapeHandler.class.getName(),new CustomCharacterEscapeHandler());
-//        StringWriter sw = new StringWriter();
-//        jaxbMarshaller.marshal(request,sw);
-//        log.info("stringWrite: {}",sw.toString());
 
-        soapMessage.setProperty(SOAPMessage.CHARACTER_SET_ENCODING, "UTF-8");
-        soapMessage.setProperty(CharacterEscapeHandler.class.getName(),new CustomCharacterEscapeHandler());
         jaxbMarshaller.marshal(request, soapBody);
-//        soapBody.setTextContent(sw.toString());
 
+    }
+
+    public <X extends Object> X objectMapper(Object from, Class<X> to){
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        X obj = mapper.convertValue(from, to);
+        return obj;
     }
 
 }
