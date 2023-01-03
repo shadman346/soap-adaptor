@@ -21,7 +21,7 @@ import java.util.Objects;
  */
 /* Process that take place in service layer(core logic):-
    - Steps to be executed for one soap web service request:-
-        Layer 1st: Prepare data transfer object that is going to hold all the necessary resources needed to share between different layers.
+        Layer 1st: Prepare data transfer object that is going to hold all the necessary resources needed to share between different layers. (External+Internal Fields)
         Layer 2nd: serialize/marshal jaxb-class request object to soap request message.
         Layer 3rd: A Client that consumes soap request message to fetch us the result from the soap web service end-point and cast response in soap response message.
         Layer 4th: deserialize/unmarshal soap response message to jaxb-class response object.
@@ -62,6 +62,7 @@ public class SOAPClientSAAJ<T,X> {
     public X callSoapWebService() {
         if (closed) {
             log.error("SOAPClientSAAJ Connection is closed !!!");
+            return null;
         }
         try {
             //Marshal process (Layer 2nd)
