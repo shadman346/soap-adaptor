@@ -9,7 +9,6 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.soap.*;
 import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
 import java.util.Map;
 
 /*
@@ -44,27 +43,30 @@ public class SOAPClientSAAJ<T,X> {
         X responseObject = null;
         try {
             // Create SOAP Connection
-            SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
-            SOAPConnection soapConnection = soapConnectionFactory.createConnection();
+            CustomSoapConnectionClient customSoapConnectionClient = new CustomSoapConnectionClient();
+            SOAPMessage soapResponseC = customSoapConnectionClient.call(createSOAPRequest(),soapUrl);
+//            SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
+//            SOAPConnection soapConnection = soapConnectionFactory.createConnection();
             // Send SOAP Message to SOAP Server
-            SOAPMessage soapResponse = soapConnection.call(createSOAPRequest(), soapUrl);
+//            SOAPMessage soapResponse = soapConnection.call(createSOAPRequest(), soapUrl);
             // Print the SOAP Response
             ByteArrayOutputStream br = new ByteArrayOutputStream();
-            soapResponse.writeTo(br);
+            soapResponseC.writeTo(br);
             log.info("Response SOAP Message:\n{}",br.toString());
             br.close();
             JAXBContext jaxbContext = JAXBContext.newInstance(responseType);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            Object response = jaxbUnmarshaller.unmarshal(soapResponse.getSOAPBody().extractContentAsDocument());
+            Object response = jaxbUnmarshaller.unmarshal(soapResponseC.getSOAPBody().extractContentAsDocument());
             responseObject = responseType.cast(response);
-            soapConnection.close();
+//            soapConnection.close();
+            customSoapConnectionClient.close();
         } catch (Exception e) {
             log.error("\nError occurred while sending SOAP Request to Server!\nMake sure you have the correct endpoint URL and SOAPAction!\n");
             e.printStackTrace();
         }
         return responseObject;
     }
-    private SOAPMessage createSOAPRequest() throws Exception {
+    public SOAPMessage createSOAPRequest() throws Exception {
         MessageFactory messageFactory = MessageFactory.newInstance();
         SOAPMessage soapMessage = messageFactory.createMessage();
 
@@ -104,8 +106,15 @@ public class SOAPClientSAAJ<T,X> {
         // output pretty printed
         jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         jaxbMarshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
-        jaxbMarshaller.setProperty(CharacterEscapeHandler.class.getName(),new CustomCharacterEscapeHandler());
+//        jaxbMarshaller.setProperty(CharacterEscapeHandler.class.getName(),new CustomCharacterEscapeHandler());
+//        StringWriter sw = new StringWriter();
+//        jaxbMarshaller.marshal(request,sw);
+//        log.info("stringWrite: {}",sw.toString());
+
+        soapMessage.setProperty(SOAPMessage.CHARACTER_SET_ENCODING, "UTF-8");
+        soapMessage.setProperty(CharacterEscapeHandler.class.getName(),new CustomCharacterEscapeHandler());
         jaxbMarshaller.marshal(request, soapBody);
+//        soapBody.setTextContent(sw.toString());
 
     }
 

@@ -21,14 +21,14 @@ public class ClaimServiceWeaklyTypedController {
     private static final String SOAP_URL = "http://heeng-speedskat:7001/web-services/ClaimServiceWeaklyTyped";
     @PostMapping("/find-claims")
     public ResponseEntity<FindClaimsResponse> findClaims(
-            @RequestBody FindClaims request){
+            @RequestBody FindClaims request) throws Exception {
         Map<String,String> headersMap = new HashMap<>();
         headersMap.putAll(SharedApplicationContext.getHeaders());
         headersMap.putAll(Constant.headersMap1);
         SOAPClientSAAJ<FindClaims, FindClaimsResponse> soapClientSAAJ = SOAPClientSAAJ.<FindClaims, FindClaimsResponse>builder()
                 .soapUrl(SOAP_URL).headersMap(headersMap).nameSpaceUriMap(new HashMap<>())
                 .request(request).responseType(FindClaimsResponse.class).build();
-
-        return ResponseEntity.status(HttpStatus.OK).body(soapClientSAAJ.callSoapWebService());
+        soapClientSAAJ.callSoapWebService();
+        return ResponseEntity.status(HttpStatus.OK).body(new FindClaimsResponse());
     }
 }

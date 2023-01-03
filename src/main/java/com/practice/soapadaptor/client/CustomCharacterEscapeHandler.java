@@ -13,7 +13,7 @@ public class CustomCharacterEscapeHandler implements CharacterEscapeHandler {
             for (int i = start; i < start + len; i++) {
                 char ch = buf[i];
 
-                //by adding these, it prevent the problem happened when unmarshalling
+                //by adding these, it prevents the problem happened when unmarshalling
                 if (ch == '&') {
                     sb.append("&amp;");
                     continue;
