@@ -41,7 +41,9 @@ public class CustomCharacterEscapeHandler implements CharacterEscapeHandler {
                     .replace("&amp;lt;", "&lt;")
                     .replace("&amp;gt;", "&gt;")
                     .replace("&amp;apos;", "&apos;")
-                    .replace("&amp;amp;", "&amp;");
+                    .replace("&amp;amp;", "&amp;")
+                    .replace("&lt;", "<")
+                    .replace("&gt;", ">");
 
             out.write(st);
         }
