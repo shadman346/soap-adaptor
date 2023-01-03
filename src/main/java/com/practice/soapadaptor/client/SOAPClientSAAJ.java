@@ -1,17 +1,19 @@
 package com.practice.soapadaptor.client;
+
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.xml.bind.marshaller.CharacterEscapeHandler;
 import lombok.Builder;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.soap.*;
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
+import java.util.Objects;
 
 /*
    -During compilation or building up the project, we must have WSDl file for all the soap web services that we need to create rest APIs for.
@@ -31,90 +33,127 @@ import java.util.Map;
      therefore we follow the above process again, preparing new dto for each request.
    - Lastly Modify Rest Response Object if needed.
  */
-@Builder
 @Slf4j
-public class SOAPClientSAAJ<T,X> {
+public class SOAPClientSAAJ<T, X> {
     private final String soapUrl;
-    private final String soapAction;
     private final T request;
     private final Class<X> responseType;
-    private final Map<String,String> nameSpaceUriMap;
-    private final Map<String,String> headersMap;
+    private final Map<String, String> nameSpaceUriMap;
+    private final Map<String, String> headersMap;
+
+    @Builder
+    public SOAPClientSAAJ(String soapUrl, T request, Class<X> responseType, Map<String, String> nameSpaceUriMap, Map<String, String> headersMap) {
+        this.soapUrl = soapUrl;
+        this.request = request;
+        this.responseType = responseType;
+        this.nameSpaceUriMap = nameSpaceUriMap;
+        this.headersMap = headersMap;
+    }
+
+    private SOAPMessage soapMessageRequest = null;
+    private SOAPMessage soapMessageResponse = null;
+    private X response = null;
+    private boolean closed = false;
+
+    public void close() {
+        if (closed) {
+            log.error("SOAPClientSAAJ Connection already closed !!");
+        }
+        closed = true;
+    }
 
     public X callSoapWebService() {
-        X responseObject = null;
+        if (Boolean.TRUE.equals(closed)) {
+            log.error("SOAPClientSAAJ Connection is closed !!!");
+        }
         try {
-            // Create SOAP Connection
-            CustomSoapConnectionClient customSoapConnectionClient = new CustomSoapConnectionClient();
-            // Send SOAP Message to SOAP Server
-            SOAPMessage soapResponseC = customSoapConnectionClient.call(createSOAPRequest(),soapUrl);
-            // Print the SOAP Response
-            ByteArrayOutputStream br = new ByteArrayOutputStream();
-            soapResponseC.writeTo(br);
-            log.info("Response SOAP Message:\n{}",br.toString());
-            br.close();
-            JAXBContext jaxbContext = JAXBContext.newInstance(responseType);
-            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            Object response = jaxbUnmarshaller.unmarshal(soapResponseC.getSOAPBody().extractContentAsDocument());
-            responseObject = objectMapper(response,responseType);
-            customSoapConnectionClient.close();
+            //Marshal process
+            serializeRequestToSOAPMessageRequest();
+            //Making Request to SOAP Server
+            publishSOAPRequestToSoapServer();
+            //Unmarshall process
+            deSerializeResponseFromSOAPMessageResponse();
         } catch (Exception e) {
             log.error("\nError occurred while sending SOAP Request to Server!\nMake sure you have the correct endpoint URL and SOAPAction!\n");
-            e.printStackTrace();
+            throw new RuntimeException(e);
+        } finally {
+            close();
         }
-        return responseObject;
+        if (Objects.isNull(response)) {
+            log.error("response object is NULL, UnIdentified Error.");
+        }
+        return response;
     }
-    public SOAPMessage createSOAPRequest() throws Exception {
+
+    private void deSerializeResponseFromSOAPMessageResponse() throws JAXBException, SOAPException {
+        JAXBContext jaxbContext = JAXBContext.newInstance(responseType);
+        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+        Object responseObject = jaxbUnmarshaller.unmarshal(soapMessageResponse.getSOAPBody().extractContentAsDocument());
+        response = objectMapper(responseObject, responseType);
+    }
+
+    private void publishSOAPRequestToSoapServer() throws Exception {
+        // Create SOAP Connection
+        CustomSoapConnectionClient customSoapConnectionClient = new CustomSoapConnectionClient();
+        // Send SOAP Message to SOAP Server
+        SOAPMessage soapResponse = customSoapConnectionClient.call(soapMessageRequest, soapUrl);
+        // Print the SOAP Response
+        ByteArrayOutputStream br = new ByteArrayOutputStream();
+        soapResponse.writeTo(br);
+        log.info("Response SOAP Message:\n{}", br.toString());
+        br.close();
+        customSoapConnectionClient.close();
+        soapMessageResponse = soapResponse;
+    }
+
+    public void serializeRequestToSOAPMessageRequest() throws Exception {
         MessageFactory messageFactory = MessageFactory.newInstance();
         SOAPMessage soapMessage = messageFactory.createMessage();
 
-        createSoapEnvelope(soapMessage);
+        createSOAPRequestEnvelope(soapMessage);
 
         MimeHeaders headers = soapMessage.getMimeHeaders();
-        for (Map.Entry<String,String> entry : headersMap.entrySet()) {
+        for (Map.Entry<String, String> entry : headersMap.entrySet()) {
             headers.addHeader(entry.getKey(), entry.getValue());
         }
         soapMessage.saveChanges();
-
         /* Print the request message, just for debugging purposes */
         ByteArrayOutputStream br = new ByteArrayOutputStream();
         soapMessage.writeTo(br);
         log.info("Request SOAP Message:\n{}", br.toString());
         br.close();
-        return soapMessage;
+
+        soapMessageRequest = soapMessage;
     }
+
     @SneakyThrows
-    private void createSoapEnvelope(SOAPMessage soapMessage) throws SOAPException {
+    private void createSOAPRequestEnvelope(SOAPMessage soapMessage) throws SOAPException {
         SOAPPart soapPart = soapMessage.getSOAPPart();
         String myNamespace = "";
         String myNamespaceURI = "";
         // SOAP Envelope
         SOAPEnvelope envelope = soapPart.getEnvelope();
-        for (Map.Entry<String,String> entry : nameSpaceUriMap.entrySet()) {
+        for (Map.Entry<String, String> entry : nameSpaceUriMap.entrySet()) {
             myNamespace = entry.getKey();
             myNamespaceURI = entry.getValue();
             envelope.addNamespaceDeclaration(myNamespace, myNamespaceURI);
         }
         // SOAP Body
         SOAPBody soapBody = envelope.getBody();
-
         //JAXB object to feed soapBody
         JAXBContext jaxbContext = JAXBContext.newInstance(request.getClass());
         Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
         // output pretty printed
         jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         jaxbMarshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
-//        jaxbMarshaller.setProperty(CharacterEscapeHandler.class.getName(),new CustomCharacterEscapeHandler());
-
         jaxbMarshaller.marshal(request, soapBody);
 
     }
 
-    public <X extends Object> X objectMapper(Object from, Class<X> to){
+    public <X extends Object> X objectMapper(Object from, Class<X> to) {
         ObjectMapper mapper = new ObjectMapper();
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
-        X obj = mapper.convertValue(from, to);
-        return obj;
+        return mapper.convertValue(from, to);
     }
 
 }

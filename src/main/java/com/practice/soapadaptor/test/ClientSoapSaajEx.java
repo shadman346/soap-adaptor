@@ -69,6 +69,7 @@ public class ClientSoapSaajEx {
         // output pretty printed
         jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         jaxbMarshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+//        jaxbMarshaller.setProperty(CharacterEscapeHandler.class.getName(),new CustomCharacterEscapeHandler());
         jaxbMarshaller.marshal(request, soapBody);
 
 //        SOAPElement soapBodyElem = soapBody.addChildElement("NumberToDollars", myNamespace);
