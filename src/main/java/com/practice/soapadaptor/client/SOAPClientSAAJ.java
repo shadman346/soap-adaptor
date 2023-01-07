@@ -42,8 +42,6 @@ public class SOAPClientSAAJ<T,X> {
     private final Map<String, String> nameSpaceUriMap;
     private final Map<String, String> headersMap;
 
-    @Autowired
-    MappingJackson2XmlHttpMessageConverter xmlConverter;
 
     //Create Builder for Required/External fields only
     @Builder
@@ -137,6 +135,7 @@ public class SOAPClientSAAJ<T,X> {
 
     public String convert(String xml) throws JsonProcessingException {
 
+        MappingJackson2XmlHttpMessageConverter xmlConverter=new MappingJackson2XmlHttpMessageConverter();
         ObjectMapper xmlMapper = xmlConverter.getObjectMapper();
         JsonNode jsonNode = xmlMapper.readTree(xml);
 
