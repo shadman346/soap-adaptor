@@ -177,6 +177,7 @@ public class CustomSoapConnectionClient extends SOAPConnection {
         InputStream httpIn = null;
         if (responseCode == HttpURLConnection.HTTP_OK || isFailure) {
             try {
+
                 MimeHeaders headers = new MimeHeaders();
 
                 String key, value;
