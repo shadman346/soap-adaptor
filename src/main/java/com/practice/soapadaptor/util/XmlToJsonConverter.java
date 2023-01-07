@@ -5,13 +5,15 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
+import org.springframework.stereotype.Component;
+
 
 public class XmlToJsonConverter {
 
 
 
     @Autowired
-    private MappingJackson2XmlHttpMessageConverter xmlConverter;
+    MappingJackson2XmlHttpMessageConverter xmlConverter;
 
 
     public String convert(String xml) throws JsonProcessingException {

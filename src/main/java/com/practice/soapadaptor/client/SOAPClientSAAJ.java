@@ -1,12 +1,15 @@
 package com.practice.soapadaptor.client;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.practice.soapadaptor.util.XmlToJsonConverter;
 import lombok.Builder;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -40,7 +43,7 @@ public class SOAPClientSAAJ<T,X> {
     private final Map<String, String> headersMap;
 
     @Autowired
-    private XmlToJsonConverter xmlToJsonConverter;
+    MappingJackson2XmlHttpMessageConverter xmlConverter;
 
     //Create Builder for Required/External fields only
     @Builder
@@ -104,7 +107,7 @@ public class SOAPClientSAAJ<T,X> {
         ByteArrayOutputStream br = new ByteArrayOutputStream();
         soapResponse.writeTo(br);
 
-        String JsonObject = xmlToJsonConverter.convert(br.toString());
+        String JsonObject = convert(br.toString());
         log.info("parsed Json Object : \n{}",JsonObject);
 //        log.info("Response SOAP Message:\n{}", br.toString());
         br.close();
@@ -130,6 +133,16 @@ public class SOAPClientSAAJ<T,X> {
         br.close();
 
         soapMessageRequest = soapMessage;
+    }
+
+    public String convert(String xml) throws JsonProcessingException {
+
+        ObjectMapper xmlMapper = xmlConverter.getObjectMapper();
+        JsonNode jsonNode = xmlMapper.readTree(xml);
+
+        ObjectMapper jsonMapper = new ObjectMapper();
+
+        return jsonMapper.writeValueAsString(jsonNode);
     }
 
     @SneakyThrows
