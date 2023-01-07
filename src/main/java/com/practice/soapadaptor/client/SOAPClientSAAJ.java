@@ -2,9 +2,11 @@ package com.practice.soapadaptor.client;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.practice.soapadaptor.util.XmlToJsonConverter;
 import lombok.Builder;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -36,6 +38,9 @@ public class SOAPClientSAAJ<T,X> {
     private final Class<X> responseType;
     private final Map<String, String> nameSpaceUriMap;
     private final Map<String, String> headersMap;
+
+    @Autowired
+    private XmlToJsonConverter xmlToJsonConverter;
 
     //Create Builder for Required/External fields only
     @Builder
@@ -98,7 +103,10 @@ public class SOAPClientSAAJ<T,X> {
         // Print the SOAP Response
         ByteArrayOutputStream br = new ByteArrayOutputStream();
         soapResponse.writeTo(br);
-        log.info("Response SOAP Message:\n{}", br.toString());
+
+        String JsonObject = xmlToJsonConverter.convert(br.toString());
+        log.info("parsed Json Object : \n{}",JsonObject);
+//        log.info("Response SOAP Message:\n{}", br.toString());
         br.close();
         customSoapConnectionClient.close();
         soapMessageResponse = soapResponse;
