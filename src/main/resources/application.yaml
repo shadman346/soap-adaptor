@@ -3,3 +3,6 @@ server:
   servlet:
     context-path: /soap-service-adaptor/
 
+soap:
+  host:
+    url: http://heeng-speedskat:7001/web-services/
