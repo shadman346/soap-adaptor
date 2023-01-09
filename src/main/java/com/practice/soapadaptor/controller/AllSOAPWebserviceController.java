@@ -16,10 +16,10 @@ import java.util.Map;
 @RequestMapping("/")
 public class AllSOAPWebserviceController {
     @Value("${soap.host.url}")
-    private static String baseUrl;
+    private String baseUrl;
 
     @PostMapping("/{webServiceName}/{soapActionName}")
-    public ResponseEntity<JsonNode> findClaims(
+    public ResponseEntity<JsonNode> getJsonResponse(
             @PathVariable String webServiceName,
             @PathVariable String soapActionName,
             @RequestBody JsonNode request) throws Exception {
