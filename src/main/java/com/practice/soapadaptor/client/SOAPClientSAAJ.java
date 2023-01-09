@@ -40,7 +40,7 @@ import java.util.Objects;
 
  */
 @Slf4j
-public class SOAPClientSAAJ<T,X> {
+public class SOAPClientSAAJ<T, X> {
 
     //Required Fields
     private final String soapUrl;
@@ -59,6 +59,7 @@ public class SOAPClientSAAJ<T,X> {
         this.nameSpaceUriMap = nameSpaceUriMap;
         this.headersMap = headersMap;
     }
+
     //Internal fields
     private SOAPMessage soapMessageRequest = null;
     private SOAPMessage soapMessageResponse = null;
@@ -83,7 +84,7 @@ public class SOAPClientSAAJ<T,X> {
             serializeRequestToSOAPMessageRequest();
             //Making Request to SOAP Server process (Step 2)
             publishSOAPRequestToSoapServer();
-//            //Unmarshall process (Step 3)
+            //Unmarshall process (Step 3)
             deSerializeResponseFromSOAPMessageResponse();
         } catch (Exception e) {
             log.error("\nError occurred while creating and sending SOAP Request to Server!\nMake sure you have the correct endpoint URL and all Required fields are present!\n");
@@ -98,14 +99,10 @@ public class SOAPClientSAAJ<T,X> {
     }
 
     private void deSerializeResponseFromSOAPMessageResponse() throws IOException, SOAPException {
-          ByteArrayOutputStream br = new ByteArrayOutputStream();
-          soapMessageResponse.writeTo(br);
-          response=  convert(br.toString());
-          br.close();
-//        JAXBContext jaxbContext = JAXBContext.newInstance(responseType);
-//        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-//        Object responseObject = jaxbUnmarshaller.unmarshal(soapMessageResponse.getSOAPBody().extractContentAsDocument());
-//        response = objectMapper(responseObject, responseType);
+        ByteArrayOutputStream br = new ByteArrayOutputStream();
+        soapMessageResponse.writeTo(br);
+        response = convert(br.toString());
+        br.close();
     }
 
     private void publishSOAPRequestToSoapServer() throws Exception {
@@ -144,49 +141,44 @@ public class SOAPClientSAAJ<T,X> {
     }
 
     public JsonNode convert(String xml) throws JsonProcessingException {
-        String xml1=decodeString(xml);
+        String xml1 = decodeString(xml);
         ObjectMapper xmlMapper = new XmlMapper();
         JsonNode jsonNode = xmlMapper.readTree(xml1);
-        jsonNode.findValues("QueryResultSet").get(0).get("Row").forEach(i -> {
-            List<JsonNode> list=new ArrayList<>();
-            for (JsonNode j : i.get("Column")){
-            if(isXML(j.get("value").asText())){
-                try {
-                    ObjectMapper mapper = new ObjectMapper();
-                    ObjectNode objectNode = mapper.createObjectNode();
-                    ObjectNode nameNode =mapper.createObjectNode();
-                    ObjectNode valueNode =mapper.createObjectNode();
-                    nameNode.put("name",j.get("name").asText());
-                    nameNode.set("value",convert2(j.get("value").asText()));
-                    list.add(nameNode);
-                } catch (JsonProcessingException e) {
-                    throw new RuntimeException(e);
+
+        if (!jsonNode.findValues("QueryResultSet").isEmpty())
+            jsonNode.findValues("QueryResultSet").get(0).get("Row").forEach(i -> {
+                for (JsonNode j : i.get("Column")) {
+                    if (isXML(j.get("value").asText())) {
+                        try {
+                            JsonNode colNode = convert(j.get("value").asText());
+                            ((ObjectNode) j).replace("value", colNode);
+
+                        } catch (JsonProcessingException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
                 }
-            }else{
-                list.add(j);
-            }
-        }
-            ((ObjectNode)i).replace("Column",listToArrayNode(list));
-        });
+
+            });
         return jsonNode;
     }
 
     public JsonNode convert2(String xml) throws JsonProcessingException {
 
-        if(xml==null || xml.length()==0) return null;
-        String xml1=decodeString2(xml);
+        if (xml == null || xml.length() == 0) return null;
+        String xml1 = decodeString2(xml);
         ObjectMapper xmlMapper = new XmlMapper();
         JsonNode jsonNode = xmlMapper.readTree(xml1);
         return jsonNode;
     }
 
-    public String decodeString2(String strData){
+    public String decodeString2(String strData) {
         if (strData == null) {
             return "";
         }
         return strData.replaceAll("lt;", "<").replaceAll("gt;", ">")
                 .replaceAll("apos;", "'").replaceAll("quot;", "\"")
-                .replaceAll("amp;", "&").replaceAll("&","");
+                .replaceAll("amp;", "&").replaceAll("&", "");
     }
 
     public ArrayNode listToArrayNode(List<JsonNode> list) {
@@ -196,6 +188,7 @@ public class SOAPClientSAAJ<T,X> {
         }
         return arrayNode;
     }
+
     public boolean isXML(String str) {
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -207,6 +200,7 @@ public class SOAPClientSAAJ<T,X> {
             return false;
         }
     }
+
     public static String decodeString(String strData) {
         if (strData == null) {
             return "";
