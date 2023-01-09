@@ -1,6 +1,8 @@
 
 package com.practice.soapadaptor.generatedold.calculator;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -34,7 +36,7 @@ public interface CalculatorSoap {
     @WebResult(name = "AddResponse", targetNamespace = "http://tempuri.org/", partName = "parameters")
     public AddResponse add(
         @WebParam(name = "Add", targetNamespace = "http://tempuri.org/", partName = "parameters")
-        Add parameters);
+        Add parameters) throws JsonProcessingException;
 
     /**
      * 
@@ -46,7 +48,7 @@ public interface CalculatorSoap {
     @WebResult(name = "SubtractResponse", targetNamespace = "http://tempuri.org/", partName = "parameters")
     public SubtractResponse subtract(
         @WebParam(name = "Subtract", targetNamespace = "http://tempuri.org/", partName = "parameters")
-        Subtract parameters);
+        Subtract parameters) throws JsonProcessingException;
 
     /**
      * 
@@ -58,7 +60,7 @@ public interface CalculatorSoap {
     @WebResult(name = "MultiplyResponse", targetNamespace = "http://tempuri.org/", partName = "parameters")
     public MultiplyResponse multiply(
         @WebParam(name = "Multiply", targetNamespace = "http://tempuri.org/", partName = "parameters")
-        Multiply parameters);
+        Multiply parameters) throws JsonProcessingException;
 
     /**
      * 
@@ -70,6 +72,6 @@ public interface CalculatorSoap {
     @WebResult(name = "DivideResponse", targetNamespace = "http://tempuri.org/", partName = "parameters")
     public DivideResponse divide(
         @WebParam(name = "Divide", targetNamespace = "http://tempuri.org/", partName = "parameters")
-        Divide parameters);
+        Divide parameters) throws JsonProcessingException;
 
 }

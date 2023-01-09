@@ -4,19 +4,29 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.practice.soapadaptor.util.XmlToJsonConverter;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import lombok.Builder;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
+import org.xml.sax.InputSource;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.soap.*;
 import java.io.ByteArrayOutputStream;
+import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -35,6 +45,7 @@ import java.util.Objects;
  */
 @Slf4j
 public class SOAPClientSAAJ<T,X> {
+
     //Required Fields
     private final String soapUrl;
     private final T request;
@@ -65,7 +76,8 @@ public class SOAPClientSAAJ<T,X> {
         closed = true;
     }
 
-    public X callSoapWebService() {
+    public X callSoapWebService() throws JsonProcessingException {
+
         if (closed) {
             log.error("SOAPClientSAAJ Connection is closed !!!");
             return null;
@@ -75,7 +87,7 @@ public class SOAPClientSAAJ<T,X> {
             serializeRequestToSOAPMessageRequest();
             //Making Request to SOAP Server process (Step 2)
             publishSOAPRequestToSoapServer();
-            //Unmarshall process (Step 3)
+//            //Unmarshall process (Step 3)
             deSerializeResponseFromSOAPMessageResponse();
         } catch (Exception e) {
             log.error("\nError occurred while creating and sending SOAP Request to Server!\nMake sure you have the correct endpoint URL and all Required fields are present!\n");
@@ -89,14 +101,17 @@ public class SOAPClientSAAJ<T,X> {
         return response;
     }
 
-    private void deSerializeResponseFromSOAPMessageResponse() throws JAXBException, SOAPException {
-        JAXBContext jaxbContext = JAXBContext.newInstance(responseType);
-        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-        Object responseObject = jaxbUnmarshaller.unmarshal(soapMessageResponse.getSOAPBody().extractContentAsDocument());
-        response = objectMapper(responseObject, responseType);
+    private void deSerializeResponseFromSOAPMessageResponse() throws JsonProcessingException {
+          ByteArrayOutputStream br = new ByteArrayOutputStream();
+          response= (X) convert(br.toString());
+//        JAXBContext jaxbContext = JAXBContext.newInstance(responseType);
+//        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+//        Object responseObject = jaxbUnmarshaller.unmarshal(soapMessageResponse.getSOAPBody().extractContentAsDocument());
+//        response = objectMapper(responseObject, responseType);
     }
 
     private void publishSOAPRequestToSoapServer() throws Exception {
+
         // Create SOAP Connection
         CustomSoapConnectionClient customSoapConnectionClient = new CustomSoapConnectionClient();
         // Send SOAP Message to SOAP Server
@@ -104,10 +119,7 @@ public class SOAPClientSAAJ<T,X> {
         // Print the SOAP Response
         ByteArrayOutputStream br = new ByteArrayOutputStream();
         soapResponse.writeTo(br);
-
-        String JsonObject = convert(br.toString());
-        log.info("parsed Json Object : \n{}",JsonObject);
-//        log.info("Response SOAP Message:\n{}", br.toString());
+        log.info("Response SOAP Message:\n{}", br.toString());
         br.close();
         customSoapConnectionClient.close();
         soapMessageResponse = soapResponse;
@@ -133,15 +145,77 @@ public class SOAPClientSAAJ<T,X> {
         soapMessageRequest = soapMessage;
     }
 
-    public String convert(String xml) throws JsonProcessingException {
+    public JsonNode convert(String xml) throws JsonProcessingException {
+        String xml1=decodeString(xml);
+        ObjectMapper xmlMapper = new XmlMapper();
+        JsonNode jsonNode = xmlMapper.readTree(xml1);
+        jsonNode.findValues("QueryResultSet").get(0).get("Row").forEach(i -> {
+            List<JsonNode> list=new ArrayList<>();
+            for (JsonNode j : i.get("Column")){
+            if(isXML(j.get("value").asText())){
+                try {
+                    ObjectMapper mapper = new ObjectMapper();
+                    ObjectNode objectNode = mapper.createObjectNode();
+                    ObjectNode nameNode =mapper.createObjectNode();
+                    ObjectNode valueNode =mapper.createObjectNode();
+                    nameNode.put("name",j.get("name").asText());
+                    nameNode.set("value",convert2(j.get("value").asText()));
+                    list.add(nameNode);
+                } catch (JsonProcessingException e) {
+                    throw new RuntimeException(e);
+                }
+            }else{
+                list.add(j);
+            }
+        }
+            ((ObjectNode)i).replace("Column",listToArrayNode(list));
+        });
+        return jsonNode;
+    }
 
-        MappingJackson2XmlHttpMessageConverter xmlConverter=new MappingJackson2XmlHttpMessageConverter();
-        ObjectMapper xmlMapper = xmlConverter.getObjectMapper();
-        JsonNode jsonNode = xmlMapper.readTree(xml);
+    public JsonNode convert2(String xml) throws JsonProcessingException {
 
-        ObjectMapper jsonMapper = new ObjectMapper();
+        if(xml==null || xml.length()==0) return null;
+        String xml1=decodeString2(xml);
+        ObjectMapper xmlMapper = new XmlMapper();
+        JsonNode jsonNode = xmlMapper.readTree(xml1);
+        return jsonNode;
+    }
 
-        return jsonMapper.writeValueAsString(jsonNode);
+    public String decodeString2(String strData){
+        if (strData == null) {
+            return "";
+        }
+        return strData.replaceAll("lt;", "<").replaceAll("gt;", ">")
+                .replaceAll("apos;", "'").replaceAll("quot;", "\"")
+                .replaceAll("amp;", "&").replaceAll("&","");
+    }
+
+    public ArrayNode listToArrayNode(List<JsonNode> list) {
+        ArrayNode arrayNode = JsonNodeFactory.instance.arrayNode();
+        for (JsonNode node : list) {
+            arrayNode.add(node);
+        }
+        return arrayNode;
+    }
+    public boolean isXML(String str) {
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            InputSource is = new InputSource(new StringReader(str));
+            builder.parse(is);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    public static String decodeString(String strData) {
+        if (strData == null) {
+            return "";
+        }
+        return strData.replaceAll("&lt;", "<").replaceAll("&gt;", ">")
+                .replaceAll("&apos;", "'").replaceAll("&quot;", "\"")
+                .replaceAll("&amp;", "&");
     }
 
     @SneakyThrows
