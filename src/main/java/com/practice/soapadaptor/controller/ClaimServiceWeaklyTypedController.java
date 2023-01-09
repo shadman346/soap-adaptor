@@ -20,6 +20,7 @@ import java.util.Map;
 @RequestMapping("/claim-service")
 public class ClaimServiceWeaklyTypedController {
     private static final String SOAP_URL = "http://heeng-speedskat:7001/web-services/ClaimServiceWeaklyTyped";
+    private static final String SOAP_URL_CAL = "http://www.dneonline.com/calculator.asmx";
     @PostMapping("/find-claims")
     public ResponseEntity<JsonNode> findClaims(
             @RequestBody JsonNode request) throws Exception {
@@ -27,7 +28,20 @@ public class ClaimServiceWeaklyTypedController {
         headersMap.putAll(SharedApplicationContext.getHeaders());
         headersMap.putAll(Constant.headersMap0);
         SOAPClientSAAJ<JsonNode, JsonNode> soapClientSAAJ = SOAPClientSAAJ.<JsonNode, JsonNode>builder()
-                .soapUrl(SOAP_URL).headersMap(headersMap).nameSpaceUriMap(Constant.nameSpaceUriMap0)
+                .soapUrl(SOAP_URL).headersMap(headersMap).nameSpaceUriMap(Constant.nameSpaceUriMap0).soapAction("FindClaims")
+                .request(request).responseType(JsonNode.class).build();
+        JsonNode response = soapClientSAAJ.callSoapWebService();
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    @PostMapping("/Add")
+    public ResponseEntity<JsonNode> Add(
+            @RequestBody JsonNode request) throws Exception {
+        Map<String,String> headersMap = new HashMap<>();
+        headersMap.putAll(SharedApplicationContext.getHeaders());
+        headersMap.putAll(Constant.headersMap0);
+        SOAPClientSAAJ<JsonNode, JsonNode> soapClientSAAJ = SOAPClientSAAJ.<JsonNode, JsonNode>builder()
+                .soapUrl(SOAP_URL_CAL).headersMap(headersMap).nameSpaceUriMap(Constant.nameSpaceUriMap0).soapAction("Add")
                 .request(request).responseType(JsonNode.class).build();
         JsonNode response = soapClientSAAJ.callSoapWebService();
         return ResponseEntity.status(HttpStatus.OK).body(response);

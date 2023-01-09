@@ -118,7 +118,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <wsdlDirectory>${project.basedir}/src/main/resources/runwsdl</wsdlDirectory>
+                    <wsdlDirectory>${project.basedir}/src/
+                        main/resources/runwsdl</wsdlDirectory>
                     <wsdlFiles>
                         <wsdlFile>ClaimServiceWeaklyTyped.wsdl</wsdlFile>
                     </wsdlFiles>

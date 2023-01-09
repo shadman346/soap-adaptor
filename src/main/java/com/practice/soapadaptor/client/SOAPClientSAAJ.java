@@ -4,8 +4,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import lombok.Builder;
@@ -13,16 +11,12 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.xml.sax.InputSource;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Marshaller;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.soap.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -48,16 +42,18 @@ public class SOAPClientSAAJ<T, X> {
     private final Class<X> responseType;
     private final Map<String, String> nameSpaceUriMap;
     private final Map<String, String> headersMap;
+    private final String SOAPAction;
 
 
     //Create Builder for Required/External fields only
     @Builder
-    public SOAPClientSAAJ(String soapUrl, T request, Class<X> responseType, Map<String, String> nameSpaceUriMap, Map<String, String> headersMap) {
+    public SOAPClientSAAJ(String soapUrl, T request, Class<X> responseType, Map<String, String> nameSpaceUriMap, Map<String, String> headersMap, String soapAction) {
         this.soapUrl = soapUrl;
         this.request = request;
         this.responseType = responseType;
         this.nameSpaceUriMap = nameSpaceUriMap;
         this.headersMap = headersMap;
+        SOAPAction = soapAction;
     }
 
     //Internal fields
@@ -127,7 +123,10 @@ public class SOAPClientSAAJ<T, X> {
 
         createSOAPRequestEnvelope(soapMessage);
 
-
+        MimeHeaders headers = soapMessage.getMimeHeaders();
+        for (Map.Entry<String, String> entry : headersMap.entrySet()) {
+            headers.addHeader(entry.getKey(), entry.getValue());
+        }
         // Get the SOAP body and add the JSON string as a SOAP body element
 
         /* Print the request message, just for debugging purposes */
@@ -195,24 +194,26 @@ public class SOAPClientSAAJ<T, X> {
             myNamespaceURI = entry.getValue();
             envelope.addNamespaceDeclaration(myNamespace, myNamespaceURI);
         }
-        MimeHeaders headers = soapMessage.getMimeHeaders();
-        for (Map.Entry<String, String> entry : headersMap.entrySet()) {
-            headers.addHeader(entry.getKey(), entry.getValue());
-        }
-
-        SOAPBody soapBody = soapMessage.getSOAPBody();
-        soapBody.addTextNode(request.toString());
-        soapMessage.saveChanges();
-        // SOAP Body
-//        SOAPBody soapBody = envelope.getBody();
-//        //JAXB object to feed soapBody
+//        SOAP Body
+        SOAPBody soapBody = envelope.getBody();
+        //JAXB object to feed soapBody
 //        JAXBContext jaxbContext = JAXBContext.newInstance(request.getClass());
 //        Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 //        // output pretty printed
 //        jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 //        jaxbMarshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
 //        jaxbMarshaller.marshal(request, soapBody);
+        ObjectMapper xmlMapper = new XmlMapper();
+        String xml = xmlMapper.writeValueAsString(request);
+        soapBody.setTextContent(wrapInSOAPAction(xml));
 
+    }
+
+    private String wrapInSOAPAction(String xmlStr) {
+        if (xmlStr == null) {
+            return "";
+        }
+        return xmlStr.replace("ObjectNode",SOAPAction);
     }
 
     public X objectMapper(Object from, Class<X> to) {
