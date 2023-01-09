@@ -57,6 +57,7 @@ public class SOAPClientSAAJ<T, X> {
     }
 
     //Internal fields
+    private final String SOAPActionNameSpace = "SOAPActionNs";
     private SOAPMessage soapMessageRequest = null;
     private SOAPMessage soapMessageResponse = null;
     private JsonNode response = null;
@@ -205,6 +206,7 @@ public class SOAPClientSAAJ<T, X> {
 //        jaxbMarshaller.marshal(request, soapBody);
         ObjectMapper xmlMapper = new XmlMapper();
         String xml = xmlMapper.writeValueAsString(request);
+
         soapBody.setTextContent(wrapInSOAPAction(xml));
 
     }
@@ -213,7 +215,8 @@ public class SOAPClientSAAJ<T, X> {
         if (xmlStr == null) {
             return "";
         }
-        return xmlStr.replace("ObjectNode",SOAPAction);
+        return xmlStr.replace("/ObjectNode","/"+SOAPActionNameSpace+":"+SOAPAction)
+                .replace("ObjectNode",SOAPActionNameSpace+":"+SOAPAction+" xmlns:"+SOAPActionNameSpace+"="+"\"http://healthedge.com\"");
     }
 
     public X objectMapper(Object from, Class<X> to) {

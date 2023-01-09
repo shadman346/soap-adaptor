@@ -14,7 +14,7 @@ public class CustomCharacterEscapeHandler implements CharacterEscapeHandler {
                 char ch = buf[i];
 
                 //by adding these, it prevents the problem happened when unmarshalling
-                if (ch == '&') {
+                if (ch == '&' && isAttValue) {
                     sb.append("&amp;");
                     continue;
                 }

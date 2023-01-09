@@ -28,7 +28,7 @@ public class ClaimServiceWeaklyTypedController {
         headersMap.putAll(SharedApplicationContext.getHeaders());
         headersMap.putAll(Constant.headersMap0);
         SOAPClientSAAJ<JsonNode, JsonNode> soapClientSAAJ = SOAPClientSAAJ.<JsonNode, JsonNode>builder()
-                .soapUrl(SOAP_URL).headersMap(headersMap).nameSpaceUriMap(Constant.nameSpaceUriMap0).soapAction("FindClaims")
+                .soapUrl(SOAP_URL).headersMap(headersMap).nameSpaceUriMap(Constant.nameSpaceUriMap0).soapAction("findClaims")
                 .request(request).responseType(JsonNode.class).build();
         JsonNode response = soapClientSAAJ.callSoapWebService();
         return ResponseEntity.status(HttpStatus.OK).body(response);
