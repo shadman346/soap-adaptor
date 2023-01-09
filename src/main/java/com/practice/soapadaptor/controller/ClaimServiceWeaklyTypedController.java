@@ -6,8 +6,6 @@ import com.practice.soapadaptor.client.SOAPClientSAAJ;
 import com.practice.soapadaptor.constants.Constant;
 import com.practice.soapadaptor.context.SharedApplicationContext;
 import com.practice.soapadaptor.wsgenerated.ClaimServiceWeaklyTyped.FindClaims;
-import com.practice.soapadaptor.wsgenerated.ClaimServiceWeaklyTyped.FindClaimsResponse;
-import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
