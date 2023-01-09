@@ -13,9 +13,10 @@ public class SOAPClientHelper {
         }
     }
 
-    private static void traverseObject(JsonNode node, List<String> list) {
+    public static void traverseObject(JsonNode node, List<String> list) {
         node.fieldNames().forEachRemaining((String fieldName) -> {
             JsonNode childNode = node.get(fieldName);
+            list.add(fieldName);
             if (traversable(childNode)) {
                 traverseObject(childNode, list);
             }

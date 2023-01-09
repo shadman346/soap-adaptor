@@ -198,7 +198,6 @@ public class SOAPClientSAAJ<T, X> {
         SOAPBody soapBody = envelope.getBody();
         ObjectMapper xmlMapper = new XmlMapper();
         String xml = xmlMapper.writeValueAsString(request);
-
         soapBody.setTextContent(wrapInSOAPAction(xml));
 
     }
