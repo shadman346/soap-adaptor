@@ -195,15 +195,7 @@ public class SOAPClientSAAJ<T, X> {
             myNamespaceURI = entry.getValue();
             envelope.addNamespaceDeclaration(myNamespace, myNamespaceURI);
         }
-//        SOAP Body
         SOAPBody soapBody = envelope.getBody();
-        //JAXB object to feed soapBody
-//        JAXBContext jaxbContext = JAXBContext.newInstance(request.getClass());
-//        Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-//        // output pretty printed
-//        jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-//        jaxbMarshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
-//        jaxbMarshaller.marshal(request, soapBody);
         ObjectMapper xmlMapper = new XmlMapper();
         String xml = xmlMapper.writeValueAsString(request);
 
