@@ -114,7 +114,7 @@ public class SOAPClientSAAJ<T, X> {
         // Print the SOAP Response
         ByteArrayOutputStream br = new ByteArrayOutputStream();
         soapResponse.writeTo(br);
-        log.info("Response SOAP Message:\n{}", br.toString());
+        log.info("Response SOAP Message:\n{}", br);
         br.close();
         customSoapConnectionClient.close();
         soapMessageResponse = soapResponse;
@@ -134,7 +134,7 @@ public class SOAPClientSAAJ<T, X> {
         /* Print the request message, just for debugging purposes */
         ByteArrayOutputStream br = new ByteArrayOutputStream();
         soapMessage.writeTo(br);
-        log.info("Request SOAP Message:\n{}", br.toString());
+        log.info("Request SOAP Message:\n{}", br);
         br.close();
 
         soapMessageRequest = soapMessage;
@@ -161,32 +161,6 @@ public class SOAPClientSAAJ<T, X> {
 
             });
         return jsonNode;
-    }
-
-    public JsonNode convert2(String xml) throws JsonProcessingException {
-
-        if (xml == null || xml.length() == 0) return null;
-        String xml1 = decodeString2(xml);
-        ObjectMapper xmlMapper = new XmlMapper();
-        JsonNode jsonNode = xmlMapper.readTree(xml1);
-        return jsonNode;
-    }
-
-    public String decodeString2(String strData) {
-        if (strData == null) {
-            return "";
-        }
-        return strData.replaceAll("lt;", "<").replaceAll("gt;", ">")
-                .replaceAll("apos;", "'").replaceAll("quot;", "\"")
-                .replaceAll("amp;", "&").replaceAll("&", "");
-    }
-
-    public ArrayNode listToArrayNode(List<JsonNode> list) {
-        ArrayNode arrayNode = JsonNodeFactory.instance.arrayNode();
-        for (JsonNode node : list) {
-            arrayNode.add(node);
-        }
-        return arrayNode;
     }
 
     public boolean isXML(String str) {
