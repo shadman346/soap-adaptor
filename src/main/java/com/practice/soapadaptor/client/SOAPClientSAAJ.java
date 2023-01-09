@@ -66,7 +66,7 @@ public class SOAPClientSAAJ<T,X> {
     //Internal fields
     private SOAPMessage soapMessageRequest = null;
     private SOAPMessage soapMessageResponse = null;
-    private X response = null;
+    private JsonNode response = null;
     private boolean closed = false;
 
     public void close() {
@@ -76,7 +76,7 @@ public class SOAPClientSAAJ<T,X> {
         closed = true;
     }
 
-    public X callSoapWebService() throws JsonProcessingException {
+    public JsonNode callSoapWebService() throws JsonProcessingException {
 
         if (closed) {
             log.error("SOAPClientSAAJ Connection is closed !!!");
@@ -103,7 +103,7 @@ public class SOAPClientSAAJ<T,X> {
 
     private void deSerializeResponseFromSOAPMessageResponse() throws JsonProcessingException {
           ByteArrayOutputStream br = new ByteArrayOutputStream();
-          response= (X) convert(br.toString());
+          response=  convert(br.toString());
 //        JAXBContext jaxbContext = JAXBContext.newInstance(responseType);
 //        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 //        Object responseObject = jaxbUnmarshaller.unmarshal(soapMessageResponse.getSOAPBody().extractContentAsDocument());
