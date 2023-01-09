@@ -166,6 +166,7 @@ public class SOAPClientNode {
     }
 
     public boolean isXML(String str) {
+        //TODO: increase time exponentially, need to replace replace validation logic.
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
