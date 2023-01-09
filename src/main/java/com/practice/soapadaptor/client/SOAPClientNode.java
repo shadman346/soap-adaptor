@@ -45,9 +45,9 @@ public class SOAPClientNode {
     private final Map<String, String> headersMap;
     @NonNull
     private final String soapAction;
-    private Map<String, String> nameSpaceEnvelopUriMap = Constant.nameSpaceEnvelopeUriMap0;
-    private String soapActionNameSpace = Constant.soapActionNameSpace;
-    private String soapActionUriNameSpace = Constant.soapActionUriNameSpace;
+    private final Map<String, String> nameSpaceEnvelopUriMap;
+    private final String soapActionNameSpace;
+    private final String soapActionUriNameSpace;
 
 
     //Create Builder for Required/External fields only
@@ -57,9 +57,9 @@ public class SOAPClientNode {
         this.requestNode = requestNode;
         this.headersMap = headersMap;
         this.soapAction = soapAction;
-        this.nameSpaceEnvelopUriMap = nameSpaceEnvelopUriMap;
-        this.soapActionNameSpace = soapActionNameSpace;
-        this.soapActionUriNameSpace = soapActionUriNameSpace;
+        this.nameSpaceEnvelopUriMap = Objects.isNull(nameSpaceEnvelopUriMap) ? Constant.nameSpaceEnvelopeUriMap0 : nameSpaceEnvelopUriMap;
+        this.soapActionNameSpace = Objects.isNull(soapActionNameSpace) ? Constant.soapActionNameSpace : soapActionNameSpace;
+        this.soapActionUriNameSpace = Objects.isNull(soapActionUriNameSpace) ? Constant.soapActionUriNameSpace : soapActionUriNameSpace;
     }
 
     //Internal fields
