@@ -22,11 +22,11 @@ public class ClaimServiceWeaklyTypedController {
     private static final String SOAP_URL = "http://heeng-speedskat:7001/web-services/ClaimServiceWeaklyTyped";
     @PostMapping("/find-claims")
     public ResponseEntity<JsonNode> findClaims(
-            @RequestBody JsonNode request) throws Exception {
+            @RequestBody FindClaims request) throws Exception {
         Map<String,String> headersMap = new HashMap<>();
         headersMap.putAll(SharedApplicationContext.getHeaders());
         headersMap.putAll(Constant.headersMap0);
-        SOAPClientSAAJ<JsonNode, JsonNode> soapClientSAAJ = SOAPClientSAAJ.<JsonNode, JsonNode>builder()
+        SOAPClientSAAJ<FindClaims, JsonNode> soapClientSAAJ = SOAPClientSAAJ.<FindClaims, JsonNode>builder()
                 .soapUrl(SOAP_URL).headersMap(headersMap).nameSpaceUriMap(Constant.nameSpaceUriMap0)
                 .request(request).responseType(JsonNode.class).build();
         JsonNode response = soapClientSAAJ.callSoapWebService();

@@ -124,12 +124,13 @@ public class SOAPClientSAAJ<T, X> {
         MessageFactory messageFactory = MessageFactory.newInstance();
         SOAPMessage soapMessage = messageFactory.createMessage();
 
-
         createSOAPRequestEnvelope(soapMessage);
 
-
-        // Get the SOAP body and add the JSON string as a SOAP body element
-
+        MimeHeaders headers = soapMessage.getMimeHeaders();
+        for (Map.Entry<String, String> entry : headersMap.entrySet()) {
+            headers.addHeader(entry.getKey(), entry.getValue());
+        }
+        soapMessage.saveChanges();
         /* Print the request message, just for debugging purposes */
         ByteArrayOutputStream br = new ByteArrayOutputStream();
         soapMessage.writeTo(br);
@@ -195,23 +196,15 @@ public class SOAPClientSAAJ<T, X> {
             myNamespaceURI = entry.getValue();
             envelope.addNamespaceDeclaration(myNamespace, myNamespaceURI);
         }
-        MimeHeaders headers = soapMessage.getMimeHeaders();
-        for (Map.Entry<String, String> entry : headersMap.entrySet()) {
-            headers.addHeader(entry.getKey(), entry.getValue());
-        }
-
-        SOAPBody soapBody = soapMessage.getSOAPBody();
-        soapBody.addTextNode(request.toString());
-        soapMessage.saveChanges();
         // SOAP Body
-//        SOAPBody soapBody = envelope.getBody();
-//        //JAXB object to feed soapBody
-//        JAXBContext jaxbContext = JAXBContext.newInstance(request.getClass());
-//        Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-//        // output pretty printed
-//        jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-//        jaxbMarshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
-//        jaxbMarshaller.marshal(request, soapBody);
+        SOAPBody soapBody = envelope.getBody();
+        //JAXB object to feed soapBody
+        JAXBContext jaxbContext = JAXBContext.newInstance(request.getClass());
+        Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+        // output pretty printed
+        jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        jaxbMarshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+        jaxbMarshaller.marshal(request, soapBody);
 
     }
 
