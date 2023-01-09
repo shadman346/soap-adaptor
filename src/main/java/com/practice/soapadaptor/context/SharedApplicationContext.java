@@ -20,4 +20,8 @@ public class SharedApplicationContext {
     public static void unload(){
         sharedData.remove();
     }
+
+    public static void close(){
+        sharedData.remove();
+    }
 }

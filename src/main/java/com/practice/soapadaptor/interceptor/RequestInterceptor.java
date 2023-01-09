@@ -26,6 +26,7 @@ public class RequestInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response,
                            Object handler, ModelAndView modelAndView) throws Exception {
+        SharedApplicationContext.close();
         log.info("post Handle method is Calling");
 
     }
