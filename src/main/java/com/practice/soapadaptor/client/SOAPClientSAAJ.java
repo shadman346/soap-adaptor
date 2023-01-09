@@ -19,6 +19,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.soap.*;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -96,9 +97,11 @@ public class SOAPClientSAAJ<T,X> {
         return response;
     }
 
-    private void deSerializeResponseFromSOAPMessageResponse() throws JsonProcessingException {
+    private void deSerializeResponseFromSOAPMessageResponse() throws IOException, SOAPException {
           ByteArrayOutputStream br = new ByteArrayOutputStream();
+          soapMessageResponse.writeTo(br);
           response=  convert(br.toString());
+          br.close();
 //        JAXBContext jaxbContext = JAXBContext.newInstance(responseType);
 //        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 //        Object responseObject = jaxbUnmarshaller.unmarshal(soapMessageResponse.getSOAPBody().extractContentAsDocument());
