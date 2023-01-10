@@ -20,10 +20,6 @@ import java.io.StringReader;
 import java.util.Map;
 import java.util.Objects;
 
-/*
-   -During compilation or building up the project, we must have WSDl file for all the soap web services that we need to create rest APIs for.
-   -We are using java plugin/tool to generate POJOs or JAXB classes for the Rest requestNode and response Objects that will further interact with our business logic.
- */
 /* Process that take place in service layer(core logic):-
    - Steps to be executed for one soap web service requestNode:-
         Initialize: Prepare data transfer object that is going to hold all the necessary resources needed to share between different layers. (External+Internal Fields)
@@ -166,7 +162,7 @@ public class SOAPClientNode {
     }
 
     public boolean isXML(String str) {
-        //TODO: increase time exponentially, need to replace replace validation logic.
+        //TODO: replace validation logic with something more efficient.
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
