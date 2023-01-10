@@ -17,8 +17,10 @@ import javax.xml.soap.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 
 /* Process that take place in service layer(core logic):-
    - Steps to be executed for one soap web service requestNode:-
@@ -143,10 +145,17 @@ public class SOAPClientNode {
         JsonNode jsonNode = xmlMapper.readTree(xml1);
         final String queryResultSet = "QueryResultSet";
         final String value = "value";
-        if (!jsonNode.findValues(queryResultSet).isEmpty())
+        final String type = "type";
+        final String name = "name";
+        Set<String> heObjects = new HashSet<>();
+        if (!jsonNode.findValues(queryResultSet).isEmpty()) {
+            jsonNode.findValues(queryResultSet).get(0).get("Metadata").get("Column").forEach(mCol -> {
+                if(mCol.get(type).toString().contains("com.healthedge"))
+                    heObjects.add(mCol.get(name).asText());
+            });
             jsonNode.findValues(queryResultSet).get(0).get("Row").forEach(i -> {
                 for (JsonNode j : i.get("Column")) {
-                    if (isXML(j.get(value).asText())) {
+                    if (heObjects.contains(j.get(name).asText()) && isXML(j.get(value).asText()) ) {
                         try {
                             JsonNode colNode = convert(j.get(value).asText());
                             ((ObjectNode) j).replace(value, colNode);
@@ -158,11 +167,13 @@ public class SOAPClientNode {
                 }
 
             });
+        }
         return jsonNode;
     }
 
     public boolean isXML(String str) {
         //TODO: replace validation logic with something more efficient.
+        if('<' != str.charAt(0)) return false;
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
@@ -205,8 +216,9 @@ public class SOAPClientNode {
         if (xmlStr == null) {
             return "";
         }
-        return xmlStr.replace("/ObjectNode", "/" + soapActionNameSpace + ":" + soapAction)
+        xmlStr = xmlStr.replace("/ObjectNode", "/" + soapActionNameSpace + ":" + soapAction)
                 .replace("ObjectNode", soapActionNameSpace + ":" + soapAction + " xmlns:" + soapActionNameSpace + "=" + soapActionUriNameSpace);
+        return xmlStr;
     }
 
 }
