@@ -183,7 +183,8 @@ public class SOAPClientNode {
         if (strData == null) {
             return "";
         }
-        return strData.replace("&lt;", "<").replace("&gt;", ">").replace("&apos;", "'").replace("&quot;", "\"").replace("&amp;", "&");
+        return strData.replace("&lt;", "<").replace("&gt;", ">").replace("&apos;", "'")
+                .replace("&quot;", "\"").replace("&amp;", "&");
     }
 
     private void createSOAPRequestEnvelope(SOAPMessage soapMessage) throws SOAPException, JsonProcessingException {
@@ -208,7 +209,8 @@ public class SOAPClientNode {
         if (xmlStr == null) {
             return "";
         }
-        return xmlStr.replace("/ObjectNode", "/" + soapActionNameSpace + ":" + soapAction).replace("ObjectNode", soapActionNameSpace + ":" + soapAction + " xmlns:" + soapActionNameSpace + "=" + soapActionUriNameSpace);
+        return xmlStr.replace("/ObjectNode", "/" + soapActionNameSpace + ":" + soapAction)
+                .replace("ObjectNode", soapActionNameSpace + ":" + soapAction + " xmlns:" + soapActionNameSpace + "=" + soapActionUriNameSpace);
     }
 
 }
