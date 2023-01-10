@@ -150,12 +150,12 @@ public class SOAPClientNode {
         Set<String> heObjects = new HashSet<>();
         if (!jsonNode.findValues(queryResultSet).isEmpty()) {
             jsonNode.findValues(queryResultSet).get(0).get("Metadata").get("Column").forEach(mCol -> {
-                if(mCol.get(type).toString().contains("com.healthedge"))
+                if (mCol.get(type).toString().contains("com.healthedge"))
                     heObjects.add(mCol.get(name).asText());
             });
             jsonNode.findValues(queryResultSet).get(0).get("Row").forEach(i -> {
                 for (JsonNode j : i.get("Column")) {
-                    if (heObjects.contains(j.get(name).asText()) && isXML(j.get(value).asText()) ) {
+                    if (heObjects.contains(j.get(name).asText()) && isXML(j.get(value).asText())) {
                         try {
                             JsonNode colNode = convert(j.get(value).asText());
                             ((ObjectNode) j).replace(value, colNode);
@@ -165,15 +165,13 @@ public class SOAPClientNode {
                         }
                     }
                 }
-
             });
         }
         return jsonNode;
     }
 
     public boolean isXML(String str) {
-        //TODO: replace validation logic with something more efficient.
-        if('<' != str.charAt(0)) return false;
+        if ('<' != str.charAt(0)) return false;
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
