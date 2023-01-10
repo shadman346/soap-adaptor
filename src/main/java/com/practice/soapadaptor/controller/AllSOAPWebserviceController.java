@@ -15,26 +15,26 @@ import java.util.Map;
 @RestController
 @RequestMapping("/")
 public class AllSOAPWebserviceController {
-    @Value("${soap.host.url}")
-    private String baseUrl;
+    @Value("${healthedge.host.url}")
+    private String baseUrlHe;
 
     @PostMapping("/{webServiceName}/{soapActionName}")
     public ResponseEntity<JsonNode> getJsonResponse(
             @PathVariable String webServiceName,
             @PathVariable String soapActionName,
             @RequestBody JsonNode request) throws Exception {
-        String soapUrl = baseUrl+webServiceName;
+        String soapUrl = baseUrlHe+webServiceName;
         SOAPClientNode soapClientNode = SOAPClientNode.builder()
                 .soapUrl(soapUrl)
                 .soapAction(soapActionName)
-                .headersMap(getHeadersMap())
+                .headersMap(getHeadersMap(soapActionName))
                 .requestNode(request)
                 .build();
         JsonNode response = soapClientNode.callSoapWebService();
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
-    private Map<String, String> getHeadersMap() {
+    private Map<String, String> getHeadersMap(String soapActionName) {
         Map<String, String> headersMap = new HashMap<>();
         headersMap.putAll(SharedApplicationContext.getHeaders());
         headersMap.putAll(Constant.headersMap0);

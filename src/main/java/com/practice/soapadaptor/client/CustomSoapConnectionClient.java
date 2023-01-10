@@ -136,7 +136,7 @@ public class CustomSoapConnectionClient extends SOAPConnection {
                 sw.close();
                 streamFilter.close();
             }
-
+            log.info("Request soap message after additional parsing that sent to soap client:\n {}", out.toString());
             httpConnection.connect();
 
             try {
