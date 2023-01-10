@@ -37,13 +37,13 @@ public class CustomCharacterEscapeHandler implements CharacterEscapeHandler {
             //Make corrections of unintended changes
             String st = sb.toString();
 
-            st = st.replace("&amp;quot;", "&quot;")
+            st = st.replace("&amp;amp;", "&amp;")
+                    .replace("&amp;quot;", "&quot;")
+                    .replace("&lt;", "<")
+                    .replace("&gt;", ">")
                     .replace("&amp;lt;", "&lt;")
                     .replace("&amp;gt;", "&gt;")
-                    .replace("&amp;apos;", "&apos;")
-                    .replace("&amp;amp;", "&amp;")
-                    .replace("&lt;", "<")
-                    .replace("&gt;", ">");
+                    .replace("&amp;apos;", "&apos;");
 
             out.write(st);
         }

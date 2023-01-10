@@ -216,7 +216,7 @@ public class SOAPClientNode {
         }
         xmlStr = xmlStr.replace("/ObjectNode", "/" + soapActionNameSpace + ":" + soapAction)
                 .replace("ObjectNode", soapActionNameSpace + ":" + soapAction + " xmlns:" + soapActionNameSpace + "=" + soapActionUriNameSpace);
-        return xmlStr;
+        return decodeString(xmlStr);
     }
 
 }
