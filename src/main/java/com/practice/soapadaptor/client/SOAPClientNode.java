@@ -171,6 +171,7 @@ public class SOAPClientNode {
     }
 
     public boolean isXML(String str) {
+        str.trim();
         if ('<' != str.charAt(0)) return false;
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -188,8 +189,9 @@ public class SOAPClientNode {
         if (strData == null) {
             return "";
         }
-        return strData.replace("&lt;", "<").replace("&gt;", ">").replace("&apos;", "'")
+        String str=strData.replace("&lt;", "<").replace("&gt;", ">").replace("&apos;", "'")
                 .replace("&quot;", "\"").replace("&amp;", "&");
+        return str.replace("","<?xml version=\"0.1\" encoding=\"utf-8\"?>");
     }
 
     private void createSOAPRequestEnvelope(SOAPMessage soapMessage) throws SOAPException, JsonProcessingException {
