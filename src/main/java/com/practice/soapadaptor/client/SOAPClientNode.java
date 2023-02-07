@@ -191,7 +191,7 @@ public class SOAPClientNode {
         }
         String str=strData.replace("&lt;", "<").replace("&gt;", ">").replace("&apos;", "'")
                 .replace("&quot;", "\"").replace("&amp;", "&");
-        return str.replace("","<?xml version=\"0.1\" encoding=\"utf-8\"?>");
+        return str.replace("<?xml version=\"1.0\" encoding=\"utf-8\"?>","");
     }
 
     private void createSOAPRequestEnvelope(SOAPMessage soapMessage) throws SOAPException, JsonProcessingException {
