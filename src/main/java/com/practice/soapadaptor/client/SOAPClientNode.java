@@ -22,6 +22,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicReference;
 
 /* Process that take place in service layer(core logic):-
    - Steps to be executed for one soap web service requestNode:-
@@ -209,7 +210,8 @@ public class SOAPClientNode {
         SOAPBody soapBody = envelope.getBody();
         ObjectMapper xmlMapper = new XmlMapper();
         String xml = xmlMapper.writeValueAsString(requestNode);
-        soapBody.setTextContent(wrapInSOAPAction(xml));
+        String xmlFinal=xml.replace("</ObjectNode>","").replace("<ObjectNode>","");
+        soapBody.setTextContent(wrapInSOAPAction(xmlFinal));
 
     }
 
