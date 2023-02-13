@@ -1,5 +1,6 @@
-package com.practice.soapadaptor.client;
+package com.practice.soapadaptor.client.connection;
 
+import com.practice.soapadaptor.client.connection.CustomCharacterEscapeHandler;
 import com.sun.xml.messaging.saaj.SOAPExceptionImpl;
 import com.sun.xml.messaging.saaj.util.ByteInputStream;
 import lombok.extern.slf4j.Slf4j;

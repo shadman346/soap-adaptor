@@ -1,4 +1,4 @@
-package com.practice.soapadaptor.client;
+package com.practice.soapadaptor.client.connection;
 
 import com.sun.xml.bind.marshaller.CharacterEscapeHandler;
 

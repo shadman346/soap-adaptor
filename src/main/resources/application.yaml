@@ -9,3 +9,35 @@ healthedge:
 
 shad:
   url: http://www.dneonline.com/
+
+
+# OracleDB connection settings
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@//10.12.120.253:1521/DB12C
+    username: WEBLOGIC_V23_2
+    password: hedge
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      maximum-pool-size: 20
+      pool-name: hikari-main-pool
+
+  jpa:
+    database-platform: org.hibernate.dialect.OracleDialect
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    properties:
+      jakarta:
+        persistence:
+          sharedCache:
+            mode: ALL
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always

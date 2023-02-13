@@ -22,8 +22,36 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc11</artifactId>
+            <version>21.8.0.0</version>
+        </dependency>
 
+        <dependency>
+            <groupId>com.healthedge.core</groupId>
+            <artifactId>core-iom</artifactId>
+            <version>LATEST</version>
+<!--            <scope>system</scope>-->
+<!--            <systemPath>C:/healthEdge/soap-adaptor/helib/core-iom-23.1.1-SNAPSHOT.jar</systemPath>-->
+        </dependency>
 
+        <dependency>
+            <groupId>com.healthedge.core</groupId>
+            <artifactId>iom</artifactId>
+            <version>LATEST</version>
+<!--            <scope>system</scope>-->
+<!--            <systemPath>C:/healthEdge/soap-adaptor/helib/iom-23.2-202302080404-322187a.jar</systemPath>-->
+        </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
@@ -97,7 +125,9 @@
                     <execution>
                         <id>add-source</id>
                         <phase>generate-sources</phase>
-                        <goals><goal>add-source</goal></goals>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
                         <configuration>
                             <sources>
                                 <source>${project.build.directory}/generated/src/main/java</source>
@@ -106,33 +136,72 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxws-maven-plugin</artifactId>
-                <version>2.6</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>wsimport</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <wsdlDirectory>${project.basedir}/src/
-                        main/resources/runwsdl</wsdlDirectory>
-                    <wsdlFiles>
-                        <wsdlFile>ClaimServiceWeaklyTyped.wsdl</wsdlFile>
-                    </wsdlFiles>
-                    <extension>true</extension>
-                    <keep>true</keep>
-                    <bindingFiles>
-                        <bindingFile>${project.basedir}/src/main/resources/binding.xml</bindingFile>
-                    </bindingFiles>
-                    <packageName>com.practice.soapadaptor.wsgenerated.ClaimServiceWeaklyTyped</packageName>
-                    <sourceDestDir>${project.build.directory}/generated/src/main/java</sourceDestDir>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.mojo</groupId>-->
+<!--                <artifactId>jaxws-maven-plugin</artifactId>-->
+<!--                <version>2.6</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>wsimport</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <configuration>-->
+<!--                    <wsdlDirectory>${project.basedir}/src/-->
+<!--                        main/resources/runwsdl-->
+<!--                    </wsdlDirectory>-->
+<!--                    <wsdlFiles>-->
+<!--                        <wsdlFile>ClaimServiceWeaklyTyped.wsdl</wsdlFile>-->
+<!--                    </wsdlFiles>-->
+<!--                    <extension>true</extension>-->
+<!--                    <keep>true</keep>-->
+<!--                    <bindingFiles>-->
+<!--                        <bindingFile>${project.basedir}/src/main/resources/binding.xml</bindingFile>-->
+<!--                    </bindingFiles>-->
+<!--                    <packageName>com.practice.soapadaptor.wsgenerated.ClaimServiceWeaklyTyped</packageName>-->
+<!--                    <sourceDestDir>${project.build.directory}/generated/src/main/java</sourceDestDir>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
         </plugins>
     </build>
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>http://nexus:8081/content/repositories/central/</url>
+        </repository>
+        <repository>
+            <id>3rdparty</id>
+            <url>http://nexus:8081/content/repositories/thirdparty/</url>
+        </repository>
+        <repository>
+            <id>releases</id>
+            <url>http://nexus:8081/content/repositories/releases/</url>
+        </repository>
+        <repository>
+            <id>temporary</id>
+            <url>http://nexus:8081/content/repositories/temporary-repo/</url>
+        </repository>
+        <repository>
+            <id>staging</id>
+            <url>http://nexus:8081/content/repositories/staging/</url>
+        </repository>
+        <repository>
+            <id>maven_central</id>
+            <name>Maven Central</name>
+            <url>https://repo.maven.apache.org/maven2/</url>
+        </repository>
+        <!--repository>
+        <id>sonatype</id>
+        <name>Sonatype Releases Repository</name>
+        <url>https://oss.sonatype.org/content/repositories/releases/</url>
+        </repository-->
+    </repositories>
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>codelds</id>-->
+<!--            <url>https://code.lds.org/nexus/content/groups/main-repo</url>-->
+<!--        </repository>-->
+<!--    </repositories>-->
 
 </project>

@@ -1,4 +1,4 @@
-package com.practice.soapadaptor.client;
+package com.practice.soapadaptor.extras;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.JsonNodeType;
