@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.healthedge.iom.generated.beans.ConsolidatedClaim;
 import com.practice.soapadaptor.client.connection.CustomSoapConnectionClient;
 import com.practice.soapadaptor.constants.Constant;
 import lombok.Builder;

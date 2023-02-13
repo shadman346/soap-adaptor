@@ -1,6 +1,5 @@
 package com.practice.soapadaptor;
 
-import com.healthedge.iom.generated.beans.Membership;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
