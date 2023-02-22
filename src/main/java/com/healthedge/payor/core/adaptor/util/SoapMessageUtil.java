@@ -16,6 +16,8 @@ public class SoapMessageUtil {
     private SoapMessageUtil(){
         /*Sonar*/
     }
+
+
     public static Map<String, String> getHeadersMap() {
         Map<String, String> headersMap = new HashMap<>();
         headersMap.putAll(SharedApplicationContext.getHeaders());
