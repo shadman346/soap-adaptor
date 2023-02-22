@@ -1,5 +1,6 @@
 package com.healthedge.payor.core.adaptor.service.impl;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.healthedge.payor.core.adaptor.DTO.request.FindClaimRequest;
@@ -43,6 +44,7 @@ public class ClaimServiceWeaklyTypedImpl implements ClaimServiceWeaklyTyped {
 
     private JsonNode doPost(String soapActionName, Object jsonRequest) {
         ObjectMapper mapper = new ObjectMapper();
+        mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         JsonNode nodeRequest = mapper.valueToTree(jsonRequest);
         setRequestResponseBean(soapActionName, nodeRequest);
         return processorManager.init(requestResponseBean)
