@@ -2,6 +2,7 @@ package com.healthedge.payor.core.adaptor.DTO.request;
 
 import lombok.Getter;
 import lombok.Setter;
+
 @Getter
 @Setter
 public class ClaimSearchInput {
@@ -16,4 +17,88 @@ public class ClaimSearchInput {
     Boolean isReplaced;
     String claimType;
     String hccMemberId;
+
+    String submittedAuthNumber;
+    String authorizationNumber;
+    String agreementNumber;
+    String memberLastName;
+    String memberFirstName;
+    String memberBirthDate;
+    Long membershipGeneratedId;
+    Long subscriptionIdentifier;
+    String claimFinalizedDateRangeStart;
+    String claimFinalizedDateRangeEnd;
+    String claimFinalizedTimestampRangeStart;
+    String claimFinalizedTimestampRangeEnd;
+    String processingDateRangeStart;
+    String processingDateRangeEnd;
+    String receiptDateRangeStart;
+    String receiptDateRangeEnd;
+    Long referringPractitionerId;
+    String supplierId;
+    String supplierName;
+    String siSupplierName;
+    String siSupplierAddress;
+    String siSupplierCity;
+    String siSupplierStateCode;
+    String siSupplierStateName;
+    String siSupplierZipCode;
+    String siSupplierCountryCode;
+    String siExternalSubscriberId;
+    String siExternalSubscriberAlphaPrefix;
+    String siExternalmemberBirthDate;
+    String siExternalMemberLastName;
+    String siExternalMemberFirstName;
+    String serviceDateRangeStart;
+    String serviceDateRangeEnd;
+    String requestedFeeAmount;
+    String procedureCode;
+    String typeOfService;
+    String placeOfService;
+    String modifier;
+    String diagnosisCode;
+    String drgCode;
+    String patientAccountNumber;
+    String accountId;
+    String accountName;
+    String billType;
+    Integer checkNumber;
+    String checkIssuedDateRangeStart;
+    String checkIssuedDateRangeEnd;
+    String claimStatusCode;
+    String blueCardClaimStatus;
+    Boolean isBypassAPIC3Enabled;
+    String minimumDollarAmountPaid;
+    String messageCode;
+    String userMessageCode;
+    String systemMessageCode;
+    String lineLevelUserMessageCode;
+    String lineLevelSystemMessageCode;
+    Boolean manuallyPriced;
+    String renderingProviderLastName;
+    String renderingProviderFirstName;
+    String renderingProviderId;
+    String payableAmount;
+    String supplierReferenceNumber;
+    String scanCode;
+    String definingService;
+    String revenueCode;
+    String claimDeliveryType;
+    String toothName;
+    String toothSurface;
+    String oralCavityName;
+    String hccClaimBatchNumber;
+    String externalClaimNumber;
+    String externalClaimBatchNumber;
+    String clearingHouseTraceNumber;
+    Boolean capitated;
+    Boolean encounter;
+    String responsibilityAction;
+    String typeOfTransaction;
+    String claimPayorType;
+    Boolean lineLevel;
+    String claimSource;
+    Boolean isConverted;
+    Boolean isTrialClaim;
+
 }
