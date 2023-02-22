@@ -1,58 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.0</version>
+        <version>2.7.8</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.practice</groupId>
-    <artifactId>soapadaptor</artifactId>
+    <groupId>com.healthedge.payor.core.adaptor</groupId>
+    <artifactId>payor-rest-adaptor</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>soapadaptor</name>
-    <description>soapadaptor</description>
+    <name>payor-rest-adaptor</name>
     <properties>
         <java.version>17</java.version>
     </properties>
     <dependencies>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.oracle.database.jdbc</groupId>-->
-<!--            <artifactId>ojdbc11</artifactId>-->
-<!--            <version>21.8.0.0</version>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>com.healthedge.core</groupId>-->
-<!--            <artifactId>core-iom</artifactId>-->
-<!--            <version>LATEST</version>-->
-<!--&lt;!&ndash;            <scope>system</scope>&ndash;&gt;-->
-<!--&lt;!&ndash;            <systemPath>C:/healthEdge/soap-adaptor/helib/core-iom-23.1.1-SNAPSHOT.jar</systemPath>&ndash;&gt;-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>com.healthedge.core</groupId>-->
-<!--            <artifactId>iom</artifactId>-->
-<!--            <version>LATEST</version>-->
-<!--&lt;!&ndash;            <scope>system</scope>&ndash;&gt;-->
-<!--&lt;!&ndash;            <systemPath>C:/healthEdge/soap-adaptor/helib/iom-23.2-202302080404-322187a.jar</systemPath>&ndash;&gt;-->
-<!--        </dependency>-->
-
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-xml</artifactId>
@@ -120,7 +92,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.9</version>
+                <version>3.3.0</version>
                 <executions>
                     <execution>
                         <id>add-source</id>
@@ -136,33 +108,6 @@
                     </execution>
                 </executions>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.codehaus.mojo</groupId>-->
-<!--                <artifactId>jaxws-maven-plugin</artifactId>-->
-<!--                <version>2.6</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <goals>-->
-<!--                            <goal>wsimport</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--                <configuration>-->
-<!--                    <wsdlDirectory>${project.basedir}/src/-->
-<!--                        main/resources/runwsdl-->
-<!--                    </wsdlDirectory>-->
-<!--                    <wsdlFiles>-->
-<!--                        <wsdlFile>ClaimServiceWeaklyTyped.wsdl</wsdlFile>-->
-<!--                    </wsdlFiles>-->
-<!--                    <extension>true</extension>-->
-<!--                    <keep>true</keep>-->
-<!--                    <bindingFiles>-->
-<!--                        <bindingFile>${project.basedir}/src/main/resources/binding.xml</bindingFile>-->
-<!--                    </bindingFiles>-->
-<!--                    <packageName>com.practice.soapadaptor.wsgenerated.ClaimServiceWeaklyTyped</packageName>-->
-<!--                    <sourceDestDir>${project.build.directory}/generated/src/main/java</sourceDestDir>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
         </plugins>
     </build>
     <repositories>
@@ -191,17 +136,6 @@
             <name>Maven Central</name>
             <url>https://repo.maven.apache.org/maven2/</url>
         </repository>
-        <!--repository>
-        <id>sonatype</id>
-        <name>Sonatype Releases Repository</name>
-        <url>https://oss.sonatype.org/content/repositories/releases/</url>
-        </repository-->
     </repositories>
-<!--    <repositories>-->
-<!--        <repository>-->
-<!--            <id>codelds</id>-->
-<!--            <url>https://code.lds.org/nexus/content/groups/main-repo</url>-->
-<!--        </repository>-->
-<!--    </repositories>-->
 
 </project>

@@ -1,0 +1,242 @@
+{
+  "Header": "",
+  "Body": {
+    "getHicSettingsResponse": {
+      "returnAsHicSettings": {
+        "HicSettings": {
+          "inSyncReferenceResolution": "false",
+          "isSubscriptionAutoIdDefined": "true",
+          "isPremiumPaymentAllocationOPDefined": "true",
+          "isPcpAutoAssignmentOPDefined": "true",
+          "showToothChart": "true",
+          "enableAccountAnniversaryDate": "false",
+          "enableVoidBill": "true",
+          "persistTrialClaim": "false",
+          "claimPreviewAlertThreshold": "0",
+          "enablePushClaimReviewRepairWorkbasket": "true",
+          "metadataRelease": "219_1_1",
+          "IOMRevision": "0",
+          "HICLRevision": "0",
+          "serverVersion": "22.4.0.1-SNAPSHOT",
+          "dataWarehouseRelease": "93_4_0",
+          "multiTenantEnabled": "false",
+          "carrierBillingEnabled": "false",
+          "blueCardSettingsEnabled": "true",
+          "burgessEnabled": "false",
+          "cotivitiEnabled": "false",
+          "stackingEnabled": "false",
+          "systemLevelFundingPayableReceivableEnabled": "false",
+          "providerDirectoryProviderFinderFlag": "false",
+          "providerDirectoryPcpAutoAssignmentFlag": "false",
+          "providerDirectoryURL": "http://heeng-optimizrs:8181/connector/services/ProviderService/search",
+          "providerDirectoryAuthToken": "Basic Y29ubmVjdG9yOkNvbm5lY3RvcjEyMw==",
+          "premiumPayableAutoAllocationOP": {
+            "autoAllocateManualAdjustment": "true",
+            "byAging": "1",
+            "versionIdentifier": "51595"
+          },
+          "premiumPaymentAutoAllocationOP": {
+            "PremiumPaymentAutoAllocationOP": [
+              {
+                "billingParty": "1",
+                "byAging": "1",
+                "allocateEvenly": "true",
+                "versionIdentifier": "51595"
+              },
+              {
+                "billingParty": "2",
+                "byAging": "1",
+                "allocateEvenly": "true",
+                "versionIdentifier": "51595"
+              }
+            ]
+          },
+          "benefitPlanTypeSelectionOP": {
+            "versionIdentifier": "51595",
+            "specificPlanTypes": {
+              "SpecificPlanType": {
+                "versionIdentifier": "51595",
+                "serviceDefinition": {
+                  "versionIdentifier": "51595",
+                  "expression": {
+                    "versionIdentifier": "51595",
+                    "orList": {
+                      "SDAndExpression": {
+                        "versionIdentifier": "51595",
+                        "andList": {
+                          "SDNotExpression": {
+                            "versionIdentifier": "51595",
+                            "expression": {
+                              "type": "ClaimTypeExpression",
+                              "versionIdentifier": "51595",
+                              "claimType": "d"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "benefitPlanType": {
+                  "ID": {
+                    "type": "xsd:long",
+                    "": "4168"
+                  }
+                }
+              }
+            },
+            "defaultPlanType": {
+              "ID": {
+                "type": "xsd:long",
+                "": "4167"
+              }
+            }
+          },
+          "claimReprocessingOP": {
+            "maxNumberOfClaims": "1000",
+            "versionIdentifier": "51595"
+          },
+          "subscriptionIdGenerationOP": {
+            "versionIdentifier": "51595",
+            "rule": {
+              "numberOfDigits": "7",
+              "versionIdentifier": "51595",
+              "memberSuffixRule": {
+                "startingNumber": "0",
+                "numberOfDigits": "2",
+                "delimiter": "-",
+                "versionIdentifier": "51595"
+              }
+            }
+          },
+          "practitionerIdGenerationOP": {
+            "versionIdentifier": "51595",
+            "practitionerIdRule": {
+              "numberOfDigits": "10",
+              "versionIdentifier": "51595"
+            }
+          },
+          "supplierIdGenerationOP": {
+            "versionIdentifier": "51595",
+            "supplierIdRule": {
+              "numberOfDigits": "10",
+              "versionIdentifier": "51595"
+            }
+          },
+          "accountIdGenerationOP": {
+            "versionIdentifier": "51595",
+            "accountIdRule": {
+              "delimiter": "-",
+              "numberOfDigits": "3",
+              "versionIdentifier": "51595",
+              "accountRule": {
+                "numberOfDigits": "10",
+                "versionIdentifier": "51595"
+              }
+            }
+          },
+          "serviceAuthorizationIdGenerationOP": {
+            "versionIdentifier": "51595",
+            "serviceAuthorizationIdRule": {
+              "numberOfDigits": "10",
+              "versionIdentifier": "51595"
+            }
+          },
+          "slotNameDefinition": {
+            "versionIdentifier": "51595",
+            "slotNames": {
+              "SlotName": [
+                {
+                  "slotName": "Basic Services",
+                  "versionIdentifier": "51595"
+                },
+                {
+                  "slotName": "Emergency Services",
+                  "versionIdentifier": "51595"
+                },
+                {
+                  "slotName": "Vision Services",
+                  "versionIdentifier": "51595"
+                },
+                {
+                  "slotName": "Fitness",
+                  "versionIdentifier": "51595"
+                },
+                {
+                  "slotName": "Inpatient Services",
+                  "versionIdentifier": "51595"
+                },
+                {
+                  "slotName": "Outpatient Services",
+                  "versionIdentifier": "51595"
+                },
+                {
+                  "slotName": "Ancillary Services",
+                  "versionIdentifier": "51595"
+                },
+                {
+                  "slotName": "Mental Health Services",
+                  "versionIdentifier": "51595"
+                },
+                {
+                  "slotName": "Pharmacy",
+                  "versionIdentifier": "51595"
+                }
+              ]
+            }
+          },
+          "taxonomyQualifiers": {
+            "TaxonomyQualifier": [
+              {
+                "qualifier": "B3",
+                "versionIdentifier": "51595"
+              },
+              {
+                "qualifier": "ZZ",
+                "versionIdentifier": "51595"
+              }
+            ]
+          },
+          "eobAttachmentTypesCodes": {
+            "Reference": {
+              "ID": {
+                "type": "xsd:long",
+                "": "3821"
+              }
+            }
+          },
+          "origEDI837AttachmentType": {
+            "ID": {
+              "type": "xsd:long",
+              "": "3801"
+            }
+          },
+          "repricerEDI837AttachmentType": {
+            "ID": {
+              "type": "xsd:long",
+              "": "3802"
+            }
+          },
+          "origEDI834AttachmentType": {
+            "ID": {
+              "type": "xsd:long",
+              "": "3803"
+            }
+          },
+          "subsequentEDI834AttachmentType": {
+            "ID": {
+              "type": "xsd:long",
+              "": "3804"
+            }
+          },
+          "premiumRefundPaymentSource": {
+            "ID": {
+              "type": "xsd:long",
+              "": "1"
+            }
+          }
+        }
+      }
+    }
+  }
+}

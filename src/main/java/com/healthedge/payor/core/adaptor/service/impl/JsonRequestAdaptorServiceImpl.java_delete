@@ -1,0 +1,41 @@
+package com.healthedge.payor.core.adaptor.service.impl;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.healthedge.payor.core.adaptor.context.RequestResponseBean;
+import com.healthedge.payor.core.adaptor.processors.ProcessorManager;
+import com.healthedge.payor.core.adaptor.service.JsonRequestAdaptorService;
+import com.healthedge.payor.core.adaptor.util.SoapMessageUtil;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+@Slf4j
+public class JsonRequestAdaptorServiceImpl implements JsonRequestAdaptorService {
+    @Autowired
+    private ProcessorManager processorManager;
+    @Autowired
+    private RequestResponseBean requestResponseBean;
+
+
+    @Override
+    public JsonNode doPost(String webServiceName, String soapActionName, JsonNode jsonRequest) {
+        log.info("Executing: {}", "ADAPTOR_SERVICE_LAYER");
+        setRequestResponseBean(webServiceName, soapActionName, jsonRequest);
+        return processorManager.init(requestResponseBean)
+                .processSoapMessage()
+                .sendSoapMessage()
+//                .processJsonResponse()
+                .processHardCodedJsonResponse()
+                .getJsonResponse();
+    }
+
+    private void setRequestResponseBean(String webServiceName, String soapActionName, JsonNode jsonRequest) {
+        requestResponseBean.setJsonRequest(jsonRequest);
+        requestResponseBean.setSoapAction(soapActionName);
+        requestResponseBean.setSoapWebServiceName(webServiceName);
+        requestResponseBean.setHeadersMap(SoapMessageUtil.getHeadersMap());
+    }
+
+}
+

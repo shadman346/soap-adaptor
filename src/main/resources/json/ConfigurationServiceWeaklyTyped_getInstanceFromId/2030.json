@@ -1,0 +1,541 @@
+{
+  "Header": "",
+  "Body": {
+    "getInstanceFromIdResponse": {
+      "instanceXmlAsIOMWrapperBean": {
+        "ConsolidatedClaim": {
+          "inSyncReferenceResolution": "false",
+          "consolidatedClaimIdentifier": "2030",
+          "hccClaimNumber": "293571901",
+          "currentHccClaimNumber": "293571901",
+          "isReplaced": "true",
+          "isTrialClaim": "false",
+          "isVoided": "false",
+          "claimState": "rv",
+          "preserveRepricingResults": "true",
+          "manuallyPriced": "false",
+          "adjudicationDuration": "41",
+          "consolidationDuration": "118",
+          "endorsementEffectiveDate": "2023-01-31T04:30:52.762",
+          "endorsementExpirationDate": "2023-01-31T05:06:17.686",
+          "workFlowCode": "6",
+          "transactionCount": "1675157452770",
+          "lastTransactionDate": "2023-01-31T05:06:17.861",
+          "lastTransactionUser": "hcc_admin",
+          "tenantIdentifier": "1",
+          "consolidatedInput": {
+            "isConverted": "false",
+            "isRenewed": "false",
+            "claimType": "d",
+            "receiptDate": "2023-01-05",
+            "processingDate": "2023-01-31T04:30:51.617",
+            "supplierReferenceNumber": "S-571399725",
+            "entryDate": "2023-01-05T16:10:06.037",
+            "totalChargedAmount": "85.00",
+            "submittedPayeeType": "1",
+            "payeeType": "1",
+            "providerSignaturePresent": "true",
+            "otherHealthBenefitPlanExists": "false",
+            "manualReadjudication": "false",
+            "claimReviewRequired": "false",
+            "encounter": "false",
+            "claimDeliveryType": "O",
+            "claimPayorType": "1",
+            "consolidatedInputIdentifier": "2030",
+            "payToAddress": {
+              "address": "431 Flanners Beach Rd",
+              "stateCode": "NC",
+              "zipCode": "28560",
+              "zipExtensionCode": "9425",
+              "cityName": "New Bern",
+              "countyCode": "37049",
+              "countryCode": "US",
+              "longitude": "-76.955765",
+              "latitude": "34.972938",
+              "postalAddressIdentifier": "10052",
+              "versionIdentifier": "0"
+            },
+            "statementPeriod": {
+              "startDate": "2001-05-17",
+              "endDate": "2001-05-17",
+              "paymentRequestPeriodIdentifier": "2030"
+            },
+            "deliveredServiceAuthorization": {
+              "AuthorizationReceived": [
+                {
+                  "authorizationNumber": "1655",
+                  "authorizationReceivedIdentifier": "2003"
+                },
+                {
+                  "authorizationNumber": "8564",
+                  "authorizationReceivedIdentifier": "2004"
+                }
+              ]
+            },
+            "dentalClaimInfo": {
+              "typeOfTransaction": "1",
+              "epsdt": "true",
+              "placeOfTreatment": "1",
+              "isTreatmentForOrthodontics": "false",
+              "replacementOfProsthesis": "false",
+              "dentalClaimInfoIdentifier": "2016",
+              "dentalInfo": {
+                "memberDentalInfoIdentifier": "15",
+                "versionIdentifier": "0",
+                "missingTeeth": {
+                  "Tooth": [
+                    {
+                      "toothName": "12",
+                      "toothIdentifier": "2086",
+                      "versionIdentifier": "0"
+                    },
+                    {
+                      "toothName": "13",
+                      "toothIdentifier": "2087",
+                      "versionIdentifier": "0"
+                    },
+                    {
+                      "toothName": "14",
+                      "toothIdentifier": "2088",
+                      "versionIdentifier": "0"
+                    }
+                  ]
+                }
+              }
+            },
+            "submittedSupplierInfo": {
+              "fullName": "Vito Sands's Office",
+              "address": "431 Flanners Beach Rd",
+              "cityName": "New Bern",
+              "stateCode": "NC",
+              "zipCode": "28560",
+              "supplierId": "553197897",
+              "supplierNPI": "4624254270",
+              "supplierTaxIdNum": "80-6176688",
+              "submittedSupplierInformationIdentifier": "2030"
+            },
+            "externalClaimFee": {
+              "ExternalClaimFee": [
+                {
+                  "feeAmount": "565.00",
+                  "feePercent": "5",
+                  "externalClaimFeeIdentifier": "1",
+                  "feeType": {
+                    "ID": {
+                      "type": "xsd:long",
+                      "": "5424"
+                    }
+                  }
+                },
+                {
+                  "feeAmount": "4.00",
+                  "feePercent": "1",
+                  "externalClaimFeeIdentifier": "2",
+                  "feeType": {
+                    "ID": {
+                      "type": "xsd:long",
+                      "": "5425"
+                    }
+                  }
+                }
+              ]
+            },
+            "submittedTreatingDentistInfo": {
+              "treatingDentistFirstName": "Shu",
+              "treatingDentistLastName": "Palmieri",
+              "submittedTreatingDentistInformationIdentifier": "2030"
+            },
+            "submittedMemberInfo": {
+              "birthDate": "1950-01-01",
+              "memberName": "Michael Gingras",
+              "address": "374 Tully Rd",
+              "cityName": "Orange",
+              "stateCode": "MA",
+              "zipCode": "01364",
+              "submittedMemberInformationIdentifier": "2030"
+            },
+            "submittedSubcriberInfo": {
+              "subscriberName": "Michael Gingras",
+              "birthDate": "1950-01-01",
+              "identificationNumber": "889887669",
+              "address": "374 Tully Rd",
+              "cityName": "Orange",
+              "stateCode": "MA",
+              "zipCode": "01364",
+              "submittedSubscriberInformationIdentifier": "2030"
+            },
+            "identifiedSupplier": {
+              "ID": {
+                "type": "xsd:long",
+                "": "6113"
+              }
+            },
+            "primaryIdentifiedSubscription": {
+              "ID": {
+                "type": "xsd:long",
+                "": "6113"
+              }
+            },
+            "memberInfo": {
+              "ID": {
+                "type": "xsd:long",
+                "": "6113"
+              }
+            },
+            "calculatedBenefitPlanType": {
+              "ID": {
+                "type": "xsd:long",
+                "": "4168"
+              }
+            },
+            "claimSource": {
+              "ID": {
+                "type": "xsd:long",
+                "": "4523"
+              }
+            }
+          },
+          "deliveredServiceList": {
+            "TransformedDeliveredService": {
+              "dslStatusCode": "a",
+              "dslTypeCode": "o",
+              "isReplaced": "false",
+              "isSplit": "false",
+              "serviceStartDate": "2001-05-17",
+              "serviceEndDate": "2001-05-17",
+              "tdsUnitCount": "1",
+              "requestedFeeAmount": "85.00",
+              "hccClaimLineNumber": "1",
+              "originalLineNumber": "Original Line Number 1",
+              "cleanClaimLineDate": "2023-01-05",
+              "roomAndBoard": "false",
+              "bundlingDecision": "np",
+              "transformedDeliveredServiceIdentifier": "4077",
+              "adjudicationResult": {
+                "totalHccAmount": "85.00",
+                "totalPaidAmount": "85.00",
+                "totalMemberPaidAmount": "0.00",
+                "totalMemberCareReserveUsed": "0.00",
+                "totalBonusAmount": "0.00",
+                "netMemberAmount": "0.00",
+                "claimLineAdjudicationResultSetIdentifier": "4077",
+                "cost": {
+                  "unadjustedAmount": "85.00",
+                  "adjustedAllowedAmount": "85.00",
+                  "providerPenalty": "0.00",
+                  "allocatedToFirstDay": "false",
+                  "stopLossAmount": "0.00",
+                  "preCapAmount": "0.00",
+                  "otherDiscount": "0.00",
+                  "isIRFPriced": "false",
+                  "serviceCostIdentifier": "4049"
+                },
+                "baseResult": {
+                  "status": "a",
+                  "authorizationRequired": "false",
+                  "claimLineAdjudicationResultIdentifier": "4025",
+                  "pricingResult": {
+                    "isContracted": "true",
+                    "nonPar": "false",
+                    "feeCalculationMethod": "17",
+                    "adjudicationPricingResultIdentifier": "4025",
+                    "cost": {
+                      "unadjustedAmount": "85.00",
+                      "adjustedAllowedAmount": "85.00",
+                      "providerPenalty": "0.00",
+                      "allocatedToFirstDay": "false",
+                      "stopLossAmount": "0.00",
+                      "preCapAmount": "0.00",
+                      "otherDiscount": "0.00",
+                      "isIRFPriced": "false",
+                      "serviceCostIdentifier": "4050"
+                    },
+                    "feeProvision": {
+                      "typeName": "SupplierContract",
+                      "typeId": "6114",
+                      "conceptTypeName": "DefaultFee",
+                      "conceptId": "8116",
+                      "genericReferenceIdentifier": "18673",
+                      "versionIdentifier": "0",
+                      "fulfilledCodeQualifier": "f",
+                      "versionDateQualifier": "1800-01-01T00:00:00.000",
+                      "endorsementEffectiveDateQualifier": "2023-01-05T16:10:05.877"
+                    },
+                    "usedOPs": {
+                      "GenericReference": {
+                        "typeName": "HealthInsuranceCompany",
+                        "typeId": "1",
+                        "conceptTypeName": "MemberResponsibilityDirective",
+                        "conceptId": "1",
+                        "genericReferenceIdentifier": "18674",
+                        "versionIdentifier": "0"
+                      }
+                    },
+                    "supplierContract": {
+                      "ID": {
+                        "type": "xsd:long",
+                        "": "6114"
+                      }
+                    }
+                  },
+                  "benefitResult": {
+                    "benefitDeliveryTier": "1",
+                    "tierName": "In Network",
+                    "benefitsSelectedByAdmissionDate": "false",
+                    "adjudicationBenefitResultIdentifier": "4025",
+                    "benefit": {
+                      "cappedAllowedMemberExcess": "0.00",
+                      "coPayAmount": "0.00",
+                      "mppCopay": "false",
+                      "deductibleAmount": "0.00",
+                      "coInsuranceAmount": "0.00",
+                      "memberResponsibilityAmount": "0.00",
+                      "nonCoveredMemberExcess": "0.00",
+                      "balanceBillMemberExcess": "0.00",
+                      "isBalanceBilled": "false",
+                      "hccAmount": "85.00",
+                      "paidAmount": "85.00",
+                      "memberPenalty": "0.00",
+                      "memberResponsibilityBasis": "1",
+                      "definedCopayAmount": "0.00",
+                      "definedCoinsurance": "0",
+                      "isMemberLiabilityBasedOnLesserOfBilledAndAllowed": "false",
+                      "totalMemberCareReserveUsed": "0.00",
+                      "bonusAmount": "0.00",
+                      "salesTaxAmount": "0.00",
+                      "otherDiscountAmount": "0.00",
+                      "benefitIdentifier": "4025"
+                    },
+                    "benefitProvision": {
+                      "typeName": "BenefitPlanComponent",
+                      "typeId": "6113",
+                      "conceptTypeName": "DefaultBenefitProvision",
+                      "conceptId": "6125",
+                      "genericReferenceIdentifier": "18675",
+                      "versionIdentifier": "0",
+                      "fulfilledCodeQualifier": "f",
+                      "versionDateQualifier": "1800-01-01T00:00:00.000",
+                      "endorsementEffectiveDateQualifier": "2023-01-05T16:10:05.620"
+                    }
+                  },
+                  "renderedByNetwork": {
+                    "ID": {
+                      "type": "xsd:long",
+                      "": "6113"
+                    }
+                  }
+                },
+                "baseBenefitPlan": {
+                  "ID": {
+                    "type": "xsd:long",
+                    "": "6113"
+                  }
+                }
+              },
+              "cobProcessingConclusion": {
+                "conclusion": "PayAsPrimary",
+                "payAsPrimary": "true",
+                "COBProcessingConclusionIdentifier": "4077"
+              },
+              "definingService": {
+                "ID": {
+                  "type": "xsd:string",
+                  "": "D3240"
+                }
+              },
+              "account": {
+                "ID": {
+                  "type": "xsd:long",
+                  "": "4113"
+                }
+              },
+              "planForFinancials": {
+                "ID": {
+                  "type": "xsd:long",
+                  "": "6113"
+                }
+              }
+            }
+          },
+          "adjudicationResult": {
+            "capitated": "false",
+            "claimAdjudicationResultIdentifier": "2030",
+            "totals": {
+              "allowedAmount": "85.00",
+              "providerPenalty": "0.00",
+              "memberAmount": "0.00",
+              "hccAmount": "85.00",
+              "paidAmount": "85.00",
+              "memberPaidAmount": "0.00",
+              "totalLesserOfPreCapAllowedAmount": "0.00",
+              "totalCalculatedReferenceFee": "0.00",
+              "totalReferenceFee": "0.00",
+              "totalOtherDiscount": "0.00",
+              "totalBonus": "0.00",
+              "totalMemberCareReserveUsed": "0.00",
+              "totalReferenceFeeDifferential": "0.00",
+              "totalRolloverBenefitAmount": "0.00",
+              "totalResponsibilityThresholdRolloverBenefitAmount": "0.00",
+              "totalFamilyResponsibilityThresholdRolloverBenefitAmount": "0.00",
+              "programAdjustments": "0.00",
+              "totalMRTAmount": "0.00",
+              "totalMRTUnitCount": "0",
+              "totalSalesTaxAmount": "0.00",
+              "claimTotalIdentifier": "2023"
+            },
+            "baseTotals": {
+              "deductibleAmount": "0.00",
+              "coPayAmount": "0.00",
+              "coInsuranceAmount": "0.00",
+              "memberAmount": "0.00",
+              "hccAmount": "85.00",
+              "salesTaxAmount": "0.00",
+              "paidAmount": "85.00",
+              "nonCoveredMemberExcess": "0.00",
+              "balanceBillMemberExcess": "0.00",
+              "memberPenalty": "0.00",
+              "cappedAllowedMemberExcess": "0.00",
+              "totalMemberCareReserveUsed": "0.00",
+              "totalReferenceFeeDifferential": "0.00",
+              "claimTotalForPlanIdentifier": "2023"
+            }
+          },
+          "reviewTriggerList": {
+            "ReviewTrigger": [
+              {
+                "creationDate": "2023-01-30T11:36:10.602",
+                "isExpired": "false",
+                "dataModificationPolicy": "false",
+                "doNotPreserveReviewDecision": "false",
+                "reviewTriggerIdentifier": "2047",
+                "versionIdentifier": "0",
+                "reviewMessageCode": {
+                  "messageCode": "501",
+                  "codeDomainName": "ClaimReviewMessageCode",
+                  "messageDescription": "Missing teeth information on claim and member record mismatch.",
+                  "policyName": "MissingTeethInfoMismatch",
+                  "messageCodeIdentifier": "10259",
+                  "versionIdentifier": "0"
+                }
+              },
+              {
+                "creationDate": "2023-01-05T16:10:06.252",
+                "isExpired": "false",
+                "dataModificationPolicy": "false",
+                "doNotPreserveReviewDecision": "false",
+                "reviewTriggerIdentifier": "2048",
+                "versionIdentifier": "0",
+                "reviewMessageCode": {
+                  "messageCode": "232",
+                  "codeDomainName": "ExceptionDomain",
+                  "messageDescription": "Attending and/or Rendering Practitioner not known",
+                  "policyName": "InvalidAttendingPractitioner",
+                  "messageCodeIdentifier": "10260",
+                  "versionIdentifier": "0"
+                },
+                "targetElementPathList": {
+                  "ElementPath": {
+                    "elementLocatorText": "consolidatedInput[0].attendingPractitioner",
+                    "elementPathIdentifier": "6082",
+                    "versionIdentifier": "0"
+                  }
+                }
+              },
+              {
+                "creationDate": "2023-01-05T16:10:06.252",
+                "isExpired": "false",
+                "dataModificationPolicy": "false",
+                "doNotPreserveReviewDecision": "false",
+                "reviewTriggerIdentifier": "2049",
+                "versionIdentifier": "0",
+                "reviewMessageCode": {
+                  "messageCode": "194",
+                  "codeDomainName": "ExceptionDomain",
+                  "messageDescription": "Attending Practitioner is missing",
+                  "policyName": "MissingAttendingPractitioner",
+                  "messageCodeIdentifier": "10261",
+                  "versionIdentifier": "0"
+                },
+                "targetElementPathList": {
+                  "ElementPath": {
+                    "elementLocatorText": "consolidatedInput.attendingPractitioner",
+                    "elementPathIdentifier": "6083",
+                    "versionIdentifier": "0"
+                  }
+                }
+              }
+            ]
+          },
+          "exceptionList": {
+            "ActivityException": {
+              "type": "TransformationException",
+              "creationDate": "2023-01-05T16:10:06.203",
+              "activityExceptionIdentifier": "6060",
+              "versionIdentifier": "0",
+              "exceptionMessageCode": {
+                "messageCode": "TransformException",
+                "codeDomainName": "TransformException",
+                "messageDescription": "Invalid attending practitioner",
+                "messageCodeIdentifier": "10262",
+                "versionIdentifier": "0"
+              },
+              "targetElementPath": {
+                "elementLocatorText": "consolidatedInput[0].attendingPractitioner",
+                "elementPathIdentifier": "6084",
+                "versionIdentifier": "0"
+              }
+            }
+          },
+          "input": {
+            "ReferenceType": "DentalSupplierInvoice",
+            "ID": {
+              "type": "xsd:long",
+              "": "135"
+            }
+          },
+          "currentInput": {
+            "ReferenceType": "DentalSupplierInvoice",
+            "ID": {
+              "type": "xsd:long",
+              "": "135"
+            }
+          },
+          "previousClaimState": {
+            "ID": {
+              "type": "xsd:long",
+              "": "2029"
+            }
+          },
+          "userMessages": {
+            "Reference": [
+              {
+                "ID": {
+                  "type": "xsd:long",
+                  "": "8017"
+                }
+              },
+              {
+                "ID": {
+                  "type": "xsd:long",
+                  "": "8018"
+                }
+              }
+            ]
+          },
+          "attachments": {
+            "ID": {
+              "type": "xsd:long",
+              "": "2471"
+            }
+          },
+          "auditLog": {
+            "ID": {
+              "type": "xsd:long",
+              "": "10099"
+            }
+          }
+        }
+      }
+    }
+  }
+}

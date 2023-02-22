@@ -1,0 +1,1241 @@
+{
+    "Header": "",
+    "Body": {
+        "getInstanceFromIdResponse": {
+            "instanceXmlAsIOMWrapperBean": {
+                "ConsolidatedClaim": {
+                    "inSyncReferenceResolution": "false",
+                    "consolidatedClaimIdentifier": "2038",
+                    "hccClaimNumber": "293571901",
+                    "currentHccClaimNumber": "293571901",
+                    "isReplaced": "false",
+                    "isTrialClaim": "false",
+                    "isVoided": "false",
+                    "claimState": "rv",
+                    "preserveRepricingResults": "true",
+                    "manuallyPriced": "false",
+                    "adjudicationDuration": "47",
+                    "consolidationDuration": "118",
+                    "endorsementEffectiveDate": "2023-02-01T02:42:18.774",
+                    "endorsementExpirationDate": "3000-01-01T00:00:00.000",
+                    "workFlowCode": "6",
+                    "transactionCount": "1675237338782",
+                    "lastTransactionDate": "2023-02-01T02:42:18.785",
+                    "lastTransactionUser": "hcc_admin",
+                    "tenantIdentifier": "1",
+                    "consolidatedInput": {
+                        "isConverted": "false",
+                        "isRenewed": "false",
+                        "claimType": "d",
+                        "receiptDate": "2023-01-05",
+                        "processingDate": "2023-02-01T02:42:17.897",
+                        "supplierReferenceNumber": "S-571399725",
+                        "entryDate": "2023-01-05T16:10:06.037",
+                        "totalChargedAmount": "85.00",
+                        "submittedPayeeType": "1",
+                        "payeeType": "1",
+                        "providerSignaturePresent": "true",
+                        "otherHealthBenefitPlanExists": "false",
+                        "manualReadjudication": "false",
+                        "claimReviewRequired": "false",
+                        "encounter": "false",
+                        "claimDeliveryType": "O",
+                        "claimPayorType": "1",
+                        "consolidatedInputIdentifier": "2038",
+                        "payToAddress": {
+                            "address": "431 Flanners Beach Rd",
+                            "stateCode": "NC",
+                            "zipCode": "28560",
+                            "zipExtensionCode": "9425",
+                            "cityName": "New Bern",
+                            "countyCode": "37049",
+                            "countryCode": "US",
+                            "longitude": "-76.955765",
+                            "latitude": "34.972938",
+                            "postalAddressIdentifier": "10063",
+                            "versionIdentifier": "0"
+                        },
+                        "statementPeriod": {
+                            "startDate": "2001-05-17",
+                            "endDate": "2001-05-17",
+                            "paymentRequestPeriodIdentifier": "2038"
+                        },
+                        "prAttachments": {
+                            "ClaimAttachment": [
+                                {
+                                    "transmissionType": "3",
+                                    "attachmentComment": "adding data",
+                                    "abstractClaimAttachmentIdentifier": "17",
+                                    "attachmentCode": {
+                                        "ID": {
+                                            "type": "xsd:long",
+                                            "": "3818"
+                                        }
+                                    }
+                                },
+                                {
+                                    "transmissionType": "1",
+                                    "attachmentComment": "adding data",
+                                    "abstractClaimAttachmentIdentifier": "18",
+                                    "attachmentCode": {
+                                        "ID": {
+                                            "type": "xsd:long",
+                                            "": "3817"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "deliveredServiceAuthorization": {
+                            "AuthorizationReceived": [
+                                {
+                                    "authorizationNumber": "1655",
+                                    "authorizationReceivedIdentifier": "2018"
+                                },
+                                {
+                                    "authorizationNumber": "8564",
+                                    "authorizationReceivedIdentifier": "2019"
+                                }
+                            ]
+                        },
+                        "otherInsuranceInfo": {
+                            "OtherInsuranceClaimInfo": [
+                                {
+                                    "companyName": "satyam",
+                                    "estimatedDueAmount": "100.00",
+                                    "otherInsuranceSubscriberName": "hgh",
+                                    "subscriberDOB": "2003-03-05",
+                                    "subscriberGender": "M",
+                                    "releaseBenefits": "true",
+                                    "acceptsAssignment": "true",
+                                    "relationshipToSubscriberCode": "father",
+                                    "dentalOICPresent": "true",
+                                    "medicalOICPresent": "true",
+                                    "otherInsuranceClaimInfoIdentifier": "14",
+                                    "priorPayments": {
+                                        "PriorPayment": {
+                                            "payment": "10.00",
+                                            "priorPaymentIdentifier": "6"
+                                        }
+                                    },
+                                    "employerAddress": {
+                                        "addressInformationIdentifier": "8006",
+                                        "versionIdentifier": "0",
+                                        "addressPhoneList": {
+                                            "Telephone": {
+                                                "phoneCountryCode": "92",
+                                                "phoneNumber": "564154",
+                                                "telephoneIdentifier": "10006",
+                                                "versionIdentifier": "0"
+                                            }
+                                        }
+                                    },
+                                    "otherInsuranceCompanyAddress": {
+                                        "address": "oal=k park",
+                                        "supplierInvoiceAddressInfoIdentifier": "2014"
+                                    },
+                                    "claimFilingIndicator": {
+                                        "ID": {
+                                            "type": "xsd:long",
+                                            "": "7899"
+                                        }
+                                    }
+                                },
+                                {
+                                    "estimatedDueAmount": "50.00",
+                                    "otherInsuranceSubscriberName": "a hhgh",
+                                    "subscriberGender": "M",
+                                    "acceptsAssignment": "false",
+                                    "dentalOICPresent": "true",
+                                    "otherInsuranceClaimInfoIdentifier": "15",
+                                    "priorPayments": {
+                                        "PriorPayment": {
+                                            "payment": "5.00",
+                                            "priorPaymentIdentifier": "7"
+                                        }
+                                    },
+                                    "employerAddress": {
+                                        "addressInformationIdentifier": "8007",
+                                        "versionIdentifier": "0",
+                                        "postalAddress": {
+                                            "stateCode": "AK",
+                                            "countryCode": "US",
+                                            "ignoreAddressCheck": "false",
+                                            "undeliverableAddress": "true",
+                                            "postalAddressIdentifier": "10064",
+                                            "versionIdentifier": "0"
+                                        },
+                                        "addressPhoneList": {
+                                            "Telephone": {
+                                                "phoneCountryCode": "92",
+                                                "telephoneIdentifier": "10007",
+                                                "versionIdentifier": "0"
+                                            }
+                                        }
+                                    },
+                                    "otherInsuranceCompanyAddress": {
+                                        "address": "oak park",
+                                        "stateCode": "alaska",
+                                        "supplierInvoiceAddressInfoIdentifier": "2015"
+                                    },
+                                    "claimFilingIndicator": {
+                                        "ID": {
+                                            "type": "xsd:long",
+                                            "": "7903"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "dentalClaimInfo": {
+                            "typeOfTransaction": "1",
+                            "epsdt": "true",
+                            "placeOfTreatment": "1",
+                            "isTreatmentForOrthodontics": "false",
+                            "replacementOfProsthesis": "false",
+                            "dentalClaimInfoIdentifier": "2023",
+                            "dentalInfo": {
+                                "memberDentalInfoIdentifier": "22",
+                                "versionIdentifier": "0",
+                                "missingTeeth": {
+                                    "Tooth": [
+                                        {
+                                            "toothName": "12",
+                                            "toothIdentifier": "2111",
+                                            "versionIdentifier": "0"
+                                        },
+                                        {
+                                            "toothName": "13",
+                                            "toothIdentifier": "2112",
+                                            "versionIdentifier": "0"
+                                        },
+                                        {
+                                            "toothName": "14",
+                                            "toothIdentifier": "2113",
+                                            "versionIdentifier": "0"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "submittedSupplierInfo": {
+                            "fullName": "Vito Sands's Office",
+                            "address": "431 Flanners Beach Rd",
+                            "cityName": "New Bern",
+                            "stateCode": "NC",
+                            "zipCode": "28560",
+                            "supplierId": "553197897",
+                            "supplierNPI": "4624254270",
+                            "supplierTaxIdNum": "80-6176688",
+                            "submittedSupplierInformationIdentifier": "2038"
+                        },
+                        "externalClaimFee": {
+                            "ExternalClaimFee": [
+                                {
+                                    "feeAmount": "565.00",
+                                    "feePercent": "5",
+                                    "externalClaimFeeIdentifier": "15",
+                                    "feeType": {
+                                        "ID": {
+                                            "type": "xsd:long",
+                                            "": "5424"
+                                        }
+                                    }
+                                },
+                                {
+                                    "feeAmount": "4.00",
+                                    "feePercent": "1",
+                                    "externalClaimFeeIdentifier": "16",
+                                    "feeType": {
+                                        "ID": {
+                                            "type": "xsd:long",
+                                            "": "5425"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "submittedTreatingDentistInfo": {
+                            "treatingDentistFirstName": "Shu",
+                            "treatingDentistLastName": "Palmieri",
+                            "submittedTreatingDentistInformationIdentifier": "2038"
+                        },
+                        "submittedMemberInfo": {
+                            "birthDate": "1950-01-01",
+                            "memberName": "Michael Gingras",
+                            "address": "374 Tully Rd",
+                            "cityName": "Orange",
+                            "stateCode": "MA",
+                            "zipCode": "01364",
+                            "submittedMemberInformationIdentifier": "2038"
+                        },
+                        "submittedSubcriberInfo": {
+                            "subscriberName": "Michael Gingras",
+                            "birthDate": "1950-01-01",
+                            "identificationNumber": "889887669",
+                            "address": "374 Tully Rd",
+                            "cityName": "Orange",
+                            "stateCode": "MA",
+                            "zipCode": "01364",
+                            "submittedSubscriberInformationIdentifier": "2038"
+                        },
+                        "claimDelegatedAttributes": {
+                            "allowedAmount": "10.00",
+                            "paidAmount": "5.00",
+                            "nonCoveredAmount": "5.00",
+                            "providerParticipationStatus": "true",
+                            "paidDate": "2023-01-10",
+                            "benefitTierType": "2",
+                            "claimDelegatedAttributesIdentifier": "7",
+                            "claimCasCodes": {
+                                "ClaimCasCode": [
+                                    {
+                                        "inputCasCode": "12",
+                                        "groupCode": "2",
+                                        "amount": "60.00",
+                                        "quantity": "1",
+                                        "claimCasCodeIdentifier": "12",
+                                        "casCode": {
+                                            "ID": {
+                                                "type": "xsd:long",
+                                                "": "126"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "inputCasCode": "11",
+                                        "groupCode": "2",
+                                        "amount": "500.00",
+                                        "quantity": "2",
+                                        "claimCasCodeIdentifier": "13",
+                                        "casCode": {
+                                            "ID": {
+                                                "type": "xsd:long",
+                                                "": "125"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "identifiedSupplier": {
+                            "ID": {
+                                "type": "xsd:long",
+                                "": "6113"
+                            }
+                        },
+                        "primaryIdentifiedSubscription": {
+                            "ID": {
+                                "type": "xsd:long",
+                                "": "6113"
+                            }
+                        },
+                        "memberInfo": {
+                            "ID": {
+                                "type": "xsd:long",
+                                "": "6113"
+                            }
+                        },
+                        "calculatedBenefitPlanType": {
+                            "ID": {
+                                "type": "xsd:long",
+                                "": "4168"
+                            }
+                        },
+                        "claimSource": {
+                            "ID": {
+                                "type": "xsd:long",
+                                "": "4523"
+                            }
+                        }
+                    },
+                    "deliveredServiceList": {
+                        "TransformedDeliveredService": [
+                            {
+                                "dslStatusCode": "c",
+                                "dslTypeCode": "o",
+                                "isReplaced": "true",
+                                "isSplit": "false",
+                                "serviceStartDate": "2001-05-17",
+                                "serviceEndDate": "2001-05-17",
+                                "tdsUnitCount": "1",
+                                "requestedFeeAmount": "85.00",
+                                "hccClaimLineNumber": "1",
+                                "originalLineNumber": "Original Line Number 1",
+                                "cleanClaimLineDate": "2023-01-05",
+                                "roomAndBoard": "false",
+                                "bundlingDecision": "uf",
+                                "processedByAlternateBenefit": "true",
+                                "transformedDeliveredServiceIdentifier": "4096",
+                                "systemMessages": {
+                                    "MessageCode": {
+                                        "messageCode": "5",
+                                        "codeDomainName": "UserMessageDomain",
+                                        "messageDescription": "Adjustment amount represents collection against receivable created in prior overpayment",
+                                        "messageCodeIdentifier": "12023",
+                                        "versionIdentifier": "0"
+                                    }
+                                },
+                                "destinationLines": {
+                                    "ClaimLinePointer": {
+                                        "lineNumber": "1.1",
+                                        "claimNumber": "293571901",
+                                        "claimLinePointerIdentifier": "4091"
+                                    }
+                                },
+                                "cobProcessingConclusion": {
+                                    "conclusion": "PayAsPrimary",
+                                    "payAsPrimary": "true",
+                                    "COBProcessingConclusionIdentifier": "4096"
+                                },
+                                "definingService": {
+                                    "ID": {
+                                        "type": "xsd:string",
+                                        "": "D3240"
+                                    }
+                                },
+                                "account": {
+                                    "ID": {
+                                        "type": "xsd:long",
+                                        "": "4113"
+                                    }
+                                },
+                                "planForFinancials": {
+                                    "ID": {
+                                        "type": "xsd:long",
+                                        "": "6113"
+                                    }
+                                }
+                            },
+                            {
+                                "dslStatusCode": "a",
+                                "dslTypeCode": "b",
+                                "isReplaced": "false",
+                                "isSplit": "false",
+                                "serviceStartDate": "2001-05-17",
+                                "serviceEndDate": "2001-05-17",
+                                "tdsUnitCount": "1",
+                                "requestedFeeAmount": "85.00",
+                                "hccClaimLineNumber": "1.1",
+                                "originalLineNumber": "Original Line Number 1",
+                                "cleanClaimLineDate": "2023-01-05",
+                                "roomAndBoard": "false",
+                                "bundlingDecision": "ut",
+                                "processedByAlternateBenefit": "true",
+                                "transformedDeliveredServiceIdentifier": "4097",
+                                "systemMessages": {
+                                    "MessageCode": {
+                                        "messageCode": "511",
+                                        "codeDomainName": "UserMessageDomain",
+                                        "messageDescription": "Altered claim/corrective material used",
+                                        "messageCodeIdentifier": "12024",
+                                        "versionIdentifier": "0"
+                                    }
+                                },
+                                "dentalInfo": {
+                                    "dentalLineInfoIdentifier": "2062",
+                                    "oralCavities": {
+                                        "OralCavity": [
+                                            {
+                                                "oralCavityName": "10",
+                                                "oralCavityIdentifier": "5",
+                                                "versionIdentifier": "0"
+                                            },
+                                            {
+                                                "oralCavityName": "09",
+                                                "oralCavityIdentifier": "6",
+                                                "versionIdentifier": "0"
+                                            }
+                                        ]
+                                    },
+                                    "teeth": {
+                                        "ToothInfo": [
+                                            {
+                                                "toothSystem": "JO",
+                                                "toothInfoIdentifier": "2064",
+                                                "tooth": {
+                                                    "toothName": "5",
+                                                    "toothIdentifier": "2114",
+                                                    "versionIdentifier": "0"
+                                                },
+                                                "surfaces": {
+                                                    "ToothSurface": [
+                                                        {
+                                                            "surface": "L",
+                                                            "toothSurfaceIdentifier": "2080"
+                                                        },
+                                                        {
+                                                            "surface": "L",
+                                                            "toothSurfaceIdentifier": "2081"
+                                                        },
+                                                        {
+                                                            "surface": "M",
+                                                            "toothSurfaceIdentifier": "2082"
+                                                        },
+                                                        {
+                                                            "surface": "O",
+                                                            "toothSurfaceIdentifier": "2083"
+                                                        },
+                                                        {
+                                                            "surface": "O",
+                                                            "toothSurfaceIdentifier": "2084"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "toothSystem": "JO",
+                                                "toothInfoIdentifier": "2065",
+                                                "tooth": {
+                                                    "toothName": "5",
+                                                    "toothIdentifier": "2115",
+                                                    "versionIdentifier": "0"
+                                                },
+                                                "surfaces": {
+                                                    "ToothSurface": [
+                                                        {
+                                                            "surface": "L",
+                                                            "toothSurfaceIdentifier": "2085"
+                                                        },
+                                                        {
+                                                            "surface": "L",
+                                                            "toothSurfaceIdentifier": "2086"
+                                                        },
+                                                        {
+                                                            "surface": "M",
+                                                            "toothSurfaceIdentifier": "2087"
+                                                        },
+                                                        {
+                                                            "surface": "O",
+                                                            "toothSurfaceIdentifier": "2088"
+                                                        },
+                                                        {
+                                                            "surface": "O",
+                                                            "toothSurfaceIdentifier": "2089"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "sourceLines": {
+                                    "ClaimLinePointer": {
+                                        "lineNumber": "1",
+                                        "claimNumber": "293571901",
+                                        "claimLinePointerIdentifier": "4092"
+                                    }
+                                },
+                                "adjudicationResult": {
+                                    "totalHccAmount": "8.50",
+                                    "totalPaidAmount": "8.50",
+                                    "totalMemberPaidAmount": "0.00",
+                                    "totalMemberCareReserveUsed": "0.00",
+                                    "totalBonusAmount": "0.00",
+                                    "netMemberAmount": "0.00",
+                                    "claimLineAdjudicationResultSetIdentifier": "4097",
+                                    "cost": {
+                                        "unadjustedAmount": "8.50",
+                                        "adjustedAllowedAmount": "8.50",
+                                        "providerPenalty": "0.00",
+                                        "allocatedToFirstDay": "false",
+                                        "stopLossAmount": "0.00",
+                                        "preCapAmount": "0.00",
+                                        "otherDiscount": "0.00",
+                                        "isIRFPriced": "false",
+                                        "serviceCostIdentifier": "4065"
+                                    },
+                                    "baseResult": {
+                                        "status": "a",
+                                        "authorizationRequired": "false",
+                                        "claimLineAdjudicationResultIdentifier": "4032",
+                                        "pricingResult": {
+                                            "isContracted": "true",
+                                            "nonPar": "false",
+                                            "feeCalculationMethod": "17",
+                                            "adjudicationPricingResultIdentifier": "4034",
+                                            "cost": {
+                                                "unadjustedAmount": "8.50",
+                                                "adjustedAllowedAmount": "8.50",
+                                                "providerPenalty": "0.00",
+                                                "allocatedToFirstDay": "false",
+                                                "stopLossAmount": "0.00",
+                                                "preCapAmount": "0.00",
+                                                "otherDiscount": "0.00",
+                                                "isIRFPriced": "false",
+                                                "serviceCostIdentifier": "4066"
+                                            },
+                                            "feeProvision": {
+                                                "typeName": "SupplierContract",
+                                                "typeId": "6114",
+                                                "conceptTypeName": "DefaultFee",
+                                                "conceptId": "8116",
+                                                "genericReferenceIdentifier": "18831",
+                                                "versionIdentifier": "0",
+                                                "fulfilledCodeQualifier": "f",
+                                                "versionDateQualifier": "1800-01-01T00:00:00.000",
+                                                "endorsementEffectiveDateQualifier": "2023-01-05T16:10:05.877"
+                                            },
+                                            "usedOPs": {
+                                                "GenericReference": {
+                                                    "typeName": "HealthInsuranceCompany",
+                                                    "typeId": "1",
+                                                    "conceptTypeName": "MemberResponsibilityDirective",
+                                                    "conceptId": "1",
+                                                    "genericReferenceIdentifier": "18832",
+                                                    "versionIdentifier": "0"
+                                                }
+                                            },
+                                            "supplierContract": {
+                                                "ID": {
+                                                    "type": "xsd:long",
+                                                    "": "6114"
+                                                }
+                                            }
+                                        },
+                                        "benefitResult": {
+                                            "benefitDeliveryTier": "1",
+                                            "tierName": "In Network",
+                                            "benefitsSelectedByAdmissionDate": "false",
+                                            "adjudicationBenefitResultIdentifier": "4032",
+                                            "benefit": {
+                                                "cappedAllowedMemberExcess": "0.00",
+                                                "coPayAmount": "0.00",
+                                                "mppCopay": "false",
+                                                "deductibleAmount": "0.00",
+                                                "coInsuranceAmount": "0.00",
+                                                "memberResponsibilityAmount": "0.00",
+                                                "nonCoveredMemberExcess": "0.00",
+                                                "balanceBillMemberExcess": "0.00",
+                                                "isBalanceBilled": "false",
+                                                "hccAmount": "8.50",
+                                                "paidAmount": "8.50",
+                                                "memberPenalty": "0.00",
+                                                "memberResponsibilityBasis": "1",
+                                                "referenceFeeDifferential": "0.00",
+                                                "alternateBenefitDifferential": "0.00",
+                                                "definedCopayAmount": "0.00",
+                                                "definedCoinsurance": "0",
+                                                "isMemberLiabilityBasedOnLesserOfBilledAndAllowed": "false",
+                                                "totalMemberCareReserveUsed": "0.00",
+                                                "bonusAmount": "0.00",
+                                                "salesTaxAmount": "0.00",
+                                                "otherDiscountAmount": "0.00",
+                                                "benefitIdentifier": "4032"
+                                            },
+                                            "benefitProvision": {
+                                                "typeName": "BenefitPlanComponent",
+                                                "typeId": "6113",
+                                                "conceptTypeName": "DefaultBenefitProvision",
+                                                "conceptId": "6125",
+                                                "genericReferenceIdentifier": "18833",
+                                                "versionIdentifier": "0",
+                                                "fulfilledCodeQualifier": "f",
+                                                "versionDateQualifier": "1800-01-01T00:00:00.000",
+                                                "endorsementEffectiveDateQualifier": "2023-01-05T16:10:05.620"
+                                            }
+                                        },
+                                        "renderedByNetwork": {
+                                            "ID": {
+                                                "type": "xsd:long",
+                                                "": "6113"
+                                            }
+                                        }
+                                    },
+                                    "baseBenefitPlan": {
+                                        "ID": {
+                                            "type": "xsd:long",
+                                            "": "6113"
+                                        }
+                                    }
+                                },
+                                "submittedServiceCodePricingResult": {
+                                    "isContracted": "true",
+                                    "nonPar": "false",
+                                    "feeCalculationMethod": "17",
+                                    "adjudicationPricingResultIdentifier": "4035",
+                                    "cost": {
+                                        "unadjustedAmount": "8.50",
+                                        "adjustedAllowedAmount": "8.50",
+                                        "providerPenalty": "0.00",
+                                        "allocatedToFirstDay": "false",
+                                        "stopLossAmount": "0.00",
+                                        "preCapAmount": "0.00",
+                                        "otherDiscount": "0.00",
+                                        "isIRFPriced": "false",
+                                        "serviceCostIdentifier": "4067"
+                                    },
+                                    "feeProvision": {
+                                        "typeName": "SupplierContract",
+                                        "typeId": "6114",
+                                        "conceptTypeName": "DefaultFee",
+                                        "conceptId": "8116",
+                                        "genericReferenceIdentifier": "18834",
+                                        "versionIdentifier": "0",
+                                        "fulfilledCodeQualifier": "f",
+                                        "versionDateQualifier": "1800-01-01T00:00:00.000",
+                                        "endorsementEffectiveDateQualifier": "2023-01-05T16:10:05.877"
+                                    },
+                                    "usedOPs": {
+                                        "GenericReference": {
+                                            "typeName": "HealthInsuranceCompany",
+                                            "typeId": "1",
+                                            "conceptTypeName": "MemberResponsibilityDirective",
+                                            "conceptId": "1",
+                                            "genericReferenceIdentifier": "18835",
+                                            "versionIdentifier": "0"
+                                        }
+                                    },
+                                    "supplierContract": {
+                                        "ID": {
+                                            "type": "xsd:long",
+                                            "": "6114"
+                                        }
+                                    }
+                                },
+                                "alternateBenefitServiceCodePricingResult": {
+                                    "isContracted": "true",
+                                    "nonPar": "false",
+                                    "feeCalculationMethod": "17",
+                                    "adjudicationPricingResultIdentifier": "4036",
+                                    "cost": {
+                                        "unadjustedAmount": "85.00",
+                                        "adjustedAllowedAmount": "85.00",
+                                        "providerPenalty": "0.00",
+                                        "allocatedToFirstDay": "false",
+                                        "stopLossAmount": "0.00",
+                                        "preCapAmount": "0.00",
+                                        "otherDiscount": "0.00",
+                                        "isIRFPriced": "false",
+                                        "serviceCostIdentifier": "4068"
+                                    },
+                                    "feeProvision": {
+                                        "typeName": "SupplierContract",
+                                        "typeId": "6114",
+                                        "conceptTypeName": "DefaultFee",
+                                        "conceptId": "8116",
+                                        "genericReferenceIdentifier": "18836",
+                                        "versionIdentifier": "0",
+                                        "fulfilledCodeQualifier": "f",
+                                        "versionDateQualifier": "1800-01-01T00:00:00.000",
+                                        "endorsementEffectiveDateQualifier": "2023-01-05T16:10:05.877"
+                                    },
+                                    "usedOPs": {
+                                        "GenericReference": {
+                                            "typeName": "HealthInsuranceCompany",
+                                            "typeId": "1",
+                                            "conceptTypeName": "MemberResponsibilityDirective",
+                                            "conceptId": "1",
+                                            "genericReferenceIdentifier": "18837",
+                                            "versionIdentifier": "0"
+                                        }
+                                    },
+                                    "supplierContract": {
+                                        "ID": {
+                                            "type": "xsd:long",
+                                            "": "6114"
+                                        }
+                                    }
+                                },
+                                "cobProcessingConclusion": {
+                                    "conclusion": "PayAsPrimary",
+                                    "payAsPrimary": "true",
+                                    "COBProcessingConclusionIdentifier": "4097"
+                                },
+                                "detailsPriorToExternalClaimEditing": {
+                                    "savings": "-8.50",
+                                    "detailsPriorToExternalClaimEditingIdentifier": "4097"
+                                },
+                                "definingService": {
+                                    "ID": {
+                                        "type": "xsd:string",
+                                        "": "A4256"
+                                    }
+                                },
+                                "account": {
+                                    "ID": {
+                                        "type": "xsd:long",
+                                        "": "4113"
+                                    }
+                                },
+                                "planForFinancials": {
+                                    "ID": {
+                                        "type": "xsd:long",
+                                        "": "6113"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "manualAdjudication": {
+                        "claimManualAdjudicationIdentifier": "2038",
+                        "alternateBenefitManualRuleSet": {
+                            "alternateBenefitManualRuleSetIdentifier": "2038",
+                            "alternateBenefitManualRules": {
+                                "AlternateBenefitManualRule": [
+                                    {
+                                        "alternateBenefitManualRuleIdentifier": "2003",
+                                        "ruleCondition": {
+                                            "alternateBenefitManualRuleConditionIdentifier": "2003",
+                                            "includedLineNumberList": {
+                                                "HccClaimLineNumber": {
+                                                    "hccClaimLineNumber": "1",
+                                                    "hccClaimLineNumberIdentifier": "2004"
+                                                }
+                                            }
+                                        },
+                                        "ruleAction": {
+                                            "actionType": "1",
+                                            "appliesToBenefitOnly": "true",
+                                            "alternateBenefitManualRuleActionIdentifier": "2003",
+                                            "servicePercentList": {
+                                                "AlternateBenefitManualServicePercentPair": {
+                                                    "percent": "10",
+                                                    "alternateBenefitManualServicePercentPairIdentifier": "2003",
+                                                    "alternateBenefitDentalInfo": {
+                                                        "useOriginalDentalLineInfo": "false",
+                                                        "alternateBenefitDentalInfoIdentifier": "2003",
+                                                        "dentalLineInfo": {
+                                                            "dentalLineInfoIdentifier": "2063",
+                                                            "oralCavities": {
+                                                                "OralCavity": [
+                                                                    {
+                                                                        "oralCavityName": "10",
+                                                                        "oralCavityIdentifier": "7",
+                                                                        "versionIdentifier": "0"
+                                                                    },
+                                                                    {
+                                                                        "oralCavityName": "09",
+                                                                        "oralCavityIdentifier": "8",
+                                                                        "versionIdentifier": "0"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "teeth": {
+                                                                "ToothInfo": [
+                                                                    {
+                                                                        "toothSystem": "JO",
+                                                                        "toothInfoIdentifier": "2066",
+                                                                        "tooth": {
+                                                                            "toothName": "5",
+                                                                            "toothIdentifier": "2116",
+                                                                            "versionIdentifier": "0"
+                                                                        },
+                                                                        "surfaces": {
+                                                                            "ToothSurface": [
+                                                                                {
+                                                                                    "surface": "L",
+                                                                                    "toothSurfaceIdentifier": "2090"
+                                                                                },
+                                                                                {
+                                                                                    "surface": "L",
+                                                                                    "toothSurfaceIdentifier": "2091"
+                                                                                },
+                                                                                {
+                                                                                    "surface": "M",
+                                                                                    "toothSurfaceIdentifier": "2092"
+                                                                                },
+                                                                                {
+                                                                                    "surface": "O",
+                                                                                    "toothSurfaceIdentifier": "2093"
+                                                                                },
+                                                                                {
+                                                                                    "surface": "O",
+                                                                                    "toothSurfaceIdentifier": "2094"
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "toothSystem": "JO",
+                                                                        "toothInfoIdentifier": "2067",
+                                                                        "tooth": {
+                                                                            "toothName": "5",
+                                                                            "toothIdentifier": "2117",
+                                                                            "versionIdentifier": "0"
+                                                                        },
+                                                                        "surfaces": {
+                                                                            "ToothSurface": [
+                                                                                {
+                                                                                    "surface": "L",
+                                                                                    "toothSurfaceIdentifier": "2095"
+                                                                                },
+                                                                                {
+                                                                                    "surface": "L",
+                                                                                    "toothSurfaceIdentifier": "2096"
+                                                                                },
+                                                                                {
+                                                                                    "surface": "M",
+                                                                                    "toothSurfaceIdentifier": "2097"
+                                                                                },
+                                                                                {
+                                                                                    "surface": "O",
+                                                                                    "toothSurfaceIdentifier": "2098"
+                                                                                },
+                                                                                {
+                                                                                    "surface": "O",
+                                                                                    "toothSurfaceIdentifier": "2099"
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    "alternateService": {
+                                                        "ID": {
+                                                            "type": "xsd:string",
+                                                            "": "A4256"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "userMessageForSubmittedLine": {
+                                                "ID": {
+                                                    "type": "xsd:long",
+                                                    "": "7209"
+                                                }
+                                            },
+                                            "userMessageForAlternateLine": {
+                                                "ID": {
+                                                    "type": "xsd:long",
+                                                    "": "7182"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "alternateBenefitManualRuleIdentifier": "2004",
+                                        "ruleCondition": {
+                                            "alternateBenefitManualRuleConditionIdentifier": "2004",
+                                            "includedLineNumberList": {
+                                                "HccClaimLineNumber": {
+                                                    "hccClaimLineNumber": "1",
+                                                    "hccClaimLineNumberIdentifier": "2005"
+                                                }
+                                            }
+                                        },
+                                        "ruleAction": {
+                                            "actionType": "2",
+                                            "appliesToBenefitOnly": "true",
+                                            "alternateBenefitManualRuleActionIdentifier": "2004",
+                                            "servicePercentList": {
+                                                "AlternateBenefitManualServicePercentPair": [
+                                                    {
+                                                        "percent": "1",
+                                                        "alternateBenefitManualServicePercentPairIdentifier": "2004",
+                                                        "alternateBenefitDentalInfo": {
+                                                            "useOriginalDentalLineInfo": "false",
+                                                            "alternateBenefitDentalInfoIdentifier": "2004",
+                                                            "dentalLineInfo": {
+                                                                "dentalLineInfoIdentifier": "2064",
+                                                                "oralCavities": {
+                                                                    "OralCavity": [
+                                                                        {
+                                                                            "oralCavityName": "10",
+                                                                            "oralCavityIdentifier": "9",
+                                                                            "versionIdentifier": "0"
+                                                                        },
+                                                                        {
+                                                                            "oralCavityName": "10",
+                                                                            "oralCavityIdentifier": "10",
+                                                                            "versionIdentifier": "0"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                "teeth": {
+                                                                    "ToothInfo": [
+                                                                        {
+                                                                            "toothSystem": "JO",
+                                                                            "toothInfoIdentifier": "2068",
+                                                                            "tooth": {
+                                                                                "toothName": "5",
+                                                                                "toothIdentifier": "2118",
+                                                                                "versionIdentifier": "0"
+                                                                            },
+                                                                            "surfaces": {
+                                                                                "ToothSurface": [
+                                                                                    {
+                                                                                        "surface": "O",
+                                                                                        "toothSurfaceIdentifier": "2100"
+                                                                                    },
+                                                                                    {
+                                                                                        "surface": "O",
+                                                                                        "toothSurfaceIdentifier": "2101"
+                                                                                    },
+                                                                                    {
+                                                                                        "surface": "L",
+                                                                                        "toothSurfaceIdentifier": "2102"
+                                                                                    },
+                                                                                    {
+                                                                                        "surface": "L",
+                                                                                        "toothSurfaceIdentifier": "2103"
+                                                                                    },
+                                                                                    {
+                                                                                        "surface": "D",
+                                                                                        "toothSurfaceIdentifier": "2104"
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "toothSystem": "JO",
+                                                                            "toothInfoIdentifier": "2069",
+                                                                            "tooth": {
+                                                                                "toothName": "8",
+                                                                                "toothIdentifier": "2119",
+                                                                                "versionIdentifier": "0"
+                                                                            },
+                                                                            "surfaces": {
+                                                                                "ToothSurface": [
+                                                                                    {
+                                                                                        "surface": "O",
+                                                                                        "toothSurfaceIdentifier": "2105"
+                                                                                    },
+                                                                                    {
+                                                                                        "surface": "O",
+                                                                                        "toothSurfaceIdentifier": "2106"
+                                                                                    },
+                                                                                    {
+                                                                                        "surface": "L",
+                                                                                        "toothSurfaceIdentifier": "2107"
+                                                                                    },
+                                                                                    {
+                                                                                        "surface": "L",
+                                                                                        "toothSurfaceIdentifier": "2108"
+                                                                                    },
+                                                                                    {
+                                                                                        "surface": "D",
+                                                                                        "toothSurfaceIdentifier": "2109"
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "alternateService": {
+                                                            "ID": {
+                                                                "type": "xsd:string",
+                                                                "": "A0422"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "percent": "60",
+                                                        "alternateBenefitManualServicePercentPairIdentifier": "2005",
+                                                        "alternateBenefitDentalInfo": {
+                                                            "useOriginalDentalLineInfo": "true",
+                                                            "alternateBenefitDentalInfoIdentifier": "2005"
+                                                        },
+                                                        "alternateService": {
+                                                            "ID": {
+                                                                "type": "xsd:string",
+                                                                "": "1AFLT"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "userMessageForSubmittedLine": {
+                                                "ID": {
+                                                    "type": "xsd:long",
+                                                    "": "8017"
+                                                }
+                                            },
+                                            "userMessageForAlternateLine": {
+                                                "ID": {
+                                                    "type": "xsd:long",
+                                                    "": "7182"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "adjudicationResult": {
+                        "capitated": "false",
+                        "claimAdjudicationResultIdentifier": "2038",
+                        "totals": {
+                            "allowedAmount": "8.50",
+                            "providerPenalty": "0.00",
+                            "memberAmount": "0.00",
+                            "hccAmount": "8.50",
+                            "paidAmount": "8.50",
+                            "memberPaidAmount": "0.00",
+                            "totalLesserOfPreCapAllowedAmount": "0.00",
+                            "totalCalculatedReferenceFee": "0.00",
+                            "totalReferenceFee": "0.00",
+                            "totalOtherDiscount": "0.00",
+                            "totalBonus": "0.00",
+                            "totalMemberCareReserveUsed": "0.00",
+                            "totalReferenceFeeDifferential": "0.00",
+                            "totalRolloverBenefitAmount": "0.00",
+                            "totalResponsibilityThresholdRolloverBenefitAmount": "0.00",
+                            "totalFamilyResponsibilityThresholdRolloverBenefitAmount": "0.00",
+                            "programAdjustments": "0.00",
+                            "totalMRTAmount": "0.00",
+                            "totalMRTUnitCount": "0",
+                            "totalSalesTaxAmount": "0.00",
+                            "claimTotalIdentifier": "2030"
+                        },
+                        "baseTotals": {
+                            "deductibleAmount": "0.00",
+                            "coPayAmount": "0.00",
+                            "coInsuranceAmount": "0.00",
+                            "memberAmount": "0.00",
+                            "hccAmount": "8.50",
+                            "salesTaxAmount": "0.00",
+                            "paidAmount": "8.50",
+                            "nonCoveredMemberExcess": "0.00",
+                            "balanceBillMemberExcess": "0.00",
+                            "memberPenalty": "0.00",
+                            "cappedAllowedMemberExcess": "0.00",
+                            "totalMemberCareReserveUsed": "0.00",
+                            "totalReferenceFeeDifferential": "0.00",
+                            "claimTotalForPlanIdentifier": "2030"
+                        }
+                    },
+                    "reviewTriggerList": {
+                        "ReviewTrigger": [
+                            {
+                                "creationDate": "2023-01-30T11:36:10.602",
+                                "isExpired": "false",
+                                "dataModificationPolicy": "false",
+                                "doNotPreserveReviewDecision": "false",
+                                "reviewTriggerIdentifier": "2068",
+                                "versionIdentifier": "0",
+                                "reviewMessageCode": {
+                                    "messageCode": "501",
+                                    "codeDomainName": "ClaimReviewMessageCode",
+                                    "messageDescription": "Missing teeth information on claim and member record mismatch.",
+                                    "policyName": "MissingTeethInfoMismatch",
+                                    "messageCodeIdentifier": "12025",
+                                    "versionIdentifier": "0"
+                                }
+                            },
+                            {
+                                "creationDate": "2023-01-05T16:10:06.252",
+                                "isExpired": "false",
+                                "dataModificationPolicy": "false",
+                                "doNotPreserveReviewDecision": "false",
+                                "reviewTriggerIdentifier": "2069",
+                                "versionIdentifier": "0",
+                                "reviewMessageCode": {
+                                    "messageCode": "232",
+                                    "codeDomainName": "ExceptionDomain",
+                                    "messageDescription": "Attending and/or Rendering Practitioner not known",
+                                    "policyName": "InvalidAttendingPractitioner",
+                                    "messageCodeIdentifier": "12026",
+                                    "versionIdentifier": "0"
+                                },
+                                "targetElementPathList": {
+                                    "ElementPath": {
+                                        "elementLocatorText": "consolidatedInput[0].attendingPractitioner",
+                                        "elementPathIdentifier": "8021",
+                                        "versionIdentifier": "0"
+                                    }
+                                }
+                            },
+                            {
+                                "creationDate": "2023-01-05T16:10:06.252",
+                                "isExpired": "false",
+                                "dataModificationPolicy": "false",
+                                "doNotPreserveReviewDecision": "false",
+                                "reviewTriggerIdentifier": "2070",
+                                "versionIdentifier": "0",
+                                "reviewMessageCode": {
+                                    "messageCode": "194",
+                                    "codeDomainName": "ExceptionDomain",
+                                    "messageDescription": "Attending Practitioner is missing",
+                                    "policyName": "MissingAttendingPractitioner",
+                                    "messageCodeIdentifier": "12027",
+                                    "versionIdentifier": "0"
+                                },
+                                "targetElementPathList": {
+                                    "ElementPath": {
+                                        "elementLocatorText": "consolidatedInput.attendingPractitioner",
+                                        "elementPathIdentifier": "8022",
+                                        "versionIdentifier": "0"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "exceptionList": {
+                        "ActivityException": {
+                            "type": "TransformationException",
+                            "creationDate": "2023-01-05T16:10:06.203",
+                            "activityExceptionIdentifier": "6080",
+                            "versionIdentifier": "0",
+                            "exceptionMessageCode": {
+                                "messageCode": "TransformException",
+                                "codeDomainName": "TransformException",
+                                "messageDescription": "Invalid attending practitioner",
+                                "messageCodeIdentifier": "12028",
+                                "versionIdentifier": "0"
+                            },
+                            "targetElementPath": {
+                                "elementLocatorText": "consolidatedInput[0].attendingPractitioner",
+                                "elementPathIdentifier": "8023",
+                                "versionIdentifier": "0"
+                            }
+                        }
+                    },
+                    "input": {
+                        "ReferenceType": "DentalSupplierInvoice",
+                        "ID": {
+                            "type": "xsd:long",
+                            "": "135"
+                        }
+                    },
+                    "currentInput": {
+                        "ReferenceType": "DentalSupplierInvoice",
+                        "ID": {
+                            "type": "xsd:long",
+                            "": "135"
+                        }
+                    },
+                    "previousClaimState": {
+                        "ID": {
+                            "type": "xsd:long",
+                            "": "2036"
+                        }
+                    },
+                    "userMessages": {
+                        "Reference": [
+                            {
+                                "ID": {
+                                    "type": "xsd:long",
+                                    "": "8017"
+                                }
+                            },
+                            {
+                                "ID": {
+                                    "type": "xsd:long",
+                                    "": "8018"
+                                }
+                            }
+                        ]
+                    },
+                    "attachments": {
+                        "ID": {
+                            "type": "xsd:long",
+                            "": "2471"
+                        }
+                    },
+                    "auditLog": {
+                        "ID": {
+                            "type": "xsd:long",
+                            "": "10099"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

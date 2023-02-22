@@ -1,0 +1,8 @@
+package com.healthedge.payor.core.adaptor.service;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.healthedge.payor.core.adaptor.context.RequestResponseBean;
+
+public interface JsonRequestAdaptorService {
+    JsonNode doPost(String webServiceName, String soapActionName, JsonNode jsonRequest);
+}
