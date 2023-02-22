@@ -1,4 +1,4 @@
-package com.healthedge.payor.core.adaptor.dto.response;
+package com.healthedge.payor.core.adaptor.DTO.response;
 
 public class Response {
 }
