@@ -1,6 +1,7 @@
 package com.healthedge.payor.core.adaptor.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.healthedge.payor.core.adaptor.DTO.request.GetInstanceFromId;
 import com.healthedge.payor.core.adaptor.service.ConfigurationServiceWeaklyTyped;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class ConfigurationServiceWeaklyTypedController {
     private ConfigurationServiceWeaklyTyped configurationServiceWeaklyTyped;
 
     @PostMapping("/getInstanceFromId")
-    public ResponseEntity<JsonNode> getInstanceFromId(@RequestBody JsonNode jsonRequest)
+    public ResponseEntity<JsonNode> getInstanceFromId(@RequestBody GetInstanceFromId jsonRequest)
          throws Exception{
             return ResponseEntity.status(HttpStatus.OK).body(
                     configurationServiceWeaklyTyped.getInstanceFromId(jsonRequest)

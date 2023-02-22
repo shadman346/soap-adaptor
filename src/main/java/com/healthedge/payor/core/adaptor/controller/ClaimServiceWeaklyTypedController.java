@@ -1,6 +1,8 @@
 package com.healthedge.payor.core.adaptor.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.healthedge.payor.core.adaptor.DTO.request.FindClaimRequest;
+import com.healthedge.payor.core.adaptor.DTO.request.GetClaimSummaryInfoRequest;
 import com.healthedge.payor.core.adaptor.service.ClaimServiceWeaklyTyped;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +24,7 @@ public class ClaimServiceWeaklyTypedController {
 
     @PostMapping("/findClaims")
     public ResponseEntity<JsonNode> findClaim(
-            @RequestBody JsonNode jsonRequest) throws Exception {
+            @RequestBody FindClaimRequest jsonRequest) throws Exception {
         return ResponseEntity.status(HttpStatus.OK).body(
                 claimServiceWeaklyTyped.findClaims(jsonRequest)
         );
@@ -30,7 +32,7 @@ public class ClaimServiceWeaklyTypedController {
 
     @PostMapping("/getClaimSummaryInfo")
     public ResponseEntity<JsonNode> getClaimSummaryInfo(
-            @RequestBody JsonNode jsonRequest) throws Exception {
+            @RequestBody GetClaimSummaryInfoRequest jsonRequest) throws Exception {
         return ResponseEntity.status(HttpStatus.OK).body(
                 claimServiceWeaklyTyped.getClaimSummaryInfo(jsonRequest)
         );

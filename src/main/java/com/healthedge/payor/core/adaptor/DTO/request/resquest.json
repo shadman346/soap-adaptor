@@ -1,0 +1,21 @@
+{
+  "searchInputXml": {
+    "ClaimSearchInput": {
+      "maxRows": "1",
+      "sortBy": {
+        "SortColumn": {
+          "columnName": "lastTransactionDate",
+          "isDescending": "true"
+        }
+      },
+      "requestedColumns": {
+        "RequestedColumn":
+        {
+          "columnName":[ "consolidatedClaimIdentifier","membershipGeneratedId","cvcId","waivePHIClaimViewRestriction","claimStatus","lastTransactionDate"]
+        }
+      },
+      "hccClaimNumber": "1",
+      "isReplaced": "false"
+    }
+  }
+}

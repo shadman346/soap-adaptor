@@ -1,6 +1,9 @@
 package com.healthedge.payor.core.adaptor.service.impl;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.healthedge.payor.core.adaptor.DTO.request.FindClaimRequest;
+import com.healthedge.payor.core.adaptor.DTO.request.GetClaimSummaryInfoRequest;
 import com.healthedge.payor.core.adaptor.context.RequestResponseBean;
 import com.healthedge.payor.core.adaptor.processors.ProcessorManager;
 import com.healthedge.payor.core.adaptor.service.ClaimServiceWeaklyTyped;
@@ -24,7 +27,7 @@ public class ClaimServiceWeaklyTypedImpl implements ClaimServiceWeaklyTyped {
 
 
     @Override
-    public JsonNode findClaims(JsonNode jsonRequest) {
+    public JsonNode findClaims(FindClaimRequest jsonRequest) {
         log.info("Executing: {}", "ADAPTOR_SERVICE_LAYER");
         return doPost(FIND_CLAIMS, jsonRequest);
     }
@@ -34,12 +37,14 @@ public class ClaimServiceWeaklyTypedImpl implements ClaimServiceWeaklyTyped {
      * @return
      */
     @Override
-    public JsonNode getClaimSummaryInfo(JsonNode jsonRequest) {
+    public JsonNode getClaimSummaryInfo(GetClaimSummaryInfoRequest jsonRequest) {
        return doPost(GET_CLAIM_SUMMARY_INFO,jsonRequest);
     }
 
-    private JsonNode doPost(String soapActionName, JsonNode jsonRequest) {
-        setRequestResponseBean(soapActionName, jsonRequest);
+    private JsonNode doPost(String soapActionName, Object jsonRequest) {
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode nodeRequest = mapper.valueToTree(jsonRequest);
+        setRequestResponseBean(soapActionName, nodeRequest);
         return processorManager.init(requestResponseBean)
                 .processSoapMessage()
                 .sendSoapMessage()

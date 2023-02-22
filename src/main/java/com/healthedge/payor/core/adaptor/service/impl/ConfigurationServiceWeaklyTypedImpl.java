@@ -1,6 +1,8 @@
 package com.healthedge.payor.core.adaptor.service.impl;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.healthedge.payor.core.adaptor.DTO.request.GetInstanceFromId;
 import com.healthedge.payor.core.adaptor.context.RequestResponseBean;
 import com.healthedge.payor.core.adaptor.processors.ProcessorManager;
 import com.healthedge.payor.core.adaptor.service.ConfigurationServiceWeaklyTyped;
@@ -23,7 +25,7 @@ public class ConfigurationServiceWeaklyTypedImpl implements ConfigurationService
     private RequestResponseBean requestResponseBean;
 
     @Override
-    public JsonNode getInstanceFromId(JsonNode jsonNode) {
+    public JsonNode getInstanceFromId(GetInstanceFromId jsonNode) {
         return doPost(GET_INSTANCE_FROM_ID,jsonNode);
     }
 
@@ -36,8 +38,10 @@ public class ConfigurationServiceWeaklyTypedImpl implements ConfigurationService
         return doPost(GET_HIC_SETTINGS,jsonNode);
     }
 
-    private JsonNode doPost(String soapActionName, JsonNode jsonRequest) {
-        setRequestResponseBean(soapActionName, jsonRequest);
+    private JsonNode doPost(String soapActionName, Object jsonRequest) {
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode nodeRequest = mapper.valueToTree(jsonRequest);
+        setRequestResponseBean(soapActionName, nodeRequest);
         return processorManager.init(requestResponseBean)
                 .processSoapMessage()
                 .sendSoapMessage()
