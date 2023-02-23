@@ -5,6 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class GetLatestVersionOfClaimWithNoLogEntry {
+public class GetLatestVersionOfClaimWithNoLogEntryRequest {
     Integer claimId;
 }

@@ -2,7 +2,7 @@ package com.healthedge.payor.core.adaptor.service.impl;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.healthedge.payor.core.adaptor.DTO.request.GetInstanceFromId;
+import com.healthedge.payor.core.adaptor.DTO.request.GetInstanceFromIdRequest;
 import com.healthedge.payor.core.adaptor.context.RequestResponseBean;
 import com.healthedge.payor.core.adaptor.processors.ProcessorManager;
 import com.healthedge.payor.core.adaptor.service.ConfigurationServiceWeaklyTyped;
@@ -25,7 +25,7 @@ public class ConfigurationServiceWeaklyTypedImpl implements ConfigurationService
     private RequestResponseBean requestResponseBean;
 
     @Override
-    public JsonNode getInstanceFromId(GetInstanceFromId jsonNode) {
+    public JsonNode getInstanceFromId(GetInstanceFromIdRequest jsonNode) {
         return doPost(GET_INSTANCE_FROM_ID,jsonNode);
     }
 

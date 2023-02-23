@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class GetInstanceFromId {
+public class GetInstanceFromIdRequest {
     String iomTypeName;
     Integer id;
     String fulfilledCode;
